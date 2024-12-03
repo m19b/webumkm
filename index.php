@@ -468,79 +468,83 @@
 
       <div class="container">
 
-        <div class="row gy-4">
+<div class="row gy-4">
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+<!-- <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                      <div class="team-member d-flex align-items-start">
+              <div class="pic"><img src="assets/img/team/ka-ikbal.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>M. Ikbal</h4>
                 <span>Programmer</span>
                 <p>Programmer</p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""> <i class="bi bi-linkedin"></i> </a>
+                <a href="https://fb.com/mik.bse" target="_blank"><i class="bi bi-facebook"></i></a>
+                <a href="https://Instagram.com/mik.bse" target="_blank"><i class="bi bi-instagram"></i></a>
                 </div>
               </div>
             </div>
-          </div><!-- End Team Member -->
+          </div>End Team Member -->
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/team-2.jpg" class="img-fluid" alt=""></div>
+
+
+  <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+    <div class="team-member d-flex align-items-start">
+      <div class="pic"><img src="assets/img/team/ka-ikbal.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Tania</h4>
-                <span>Desain Layout</span>
-                <p>Desain Layout</p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""> <i class="bi bi-linkedin"></i> </a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/team-4.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Laela</h4>
-                <span>Databases</span>
-                <p>Databases</p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""> <i class="bi bi-linkedin"></i> </a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/team-44.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Lainnya</h4>
-                <span>Bebas</span>
-                <p>Bebas</p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""> <i class="bi bi-linkedin"></i> </a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
+        <h4>M. Ikbal</h4>
+        <span>Programmer</span>
+        <p>Programmer</p>
+        <div class="social">
+          <a href="https://instagram.com/mik.bse" target="_blank"><i class="bi bi-facebook"></i></a>
+          <a href="https://fb.com/mik.bse" target="_blank"><i class="bi bi-instagram"></i></a>
         </div>
-
       </div>
+    </div>
+  </div><!-- End Team Member -->
+
+
+
+
+
+  <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+    <div class="team-member d-flex align-items-start">
+       <div class="pic"><img src="assets/img/team/tania.jpg" class="img-fluid" alt=""></div>
+             <div class="member-info">
+        <h4>Tania</h4>
+        <span>Desain Layout</span>
+        <p>Desain Layout</p>
+        <div class="social">
+        <a href=""><i class="bi bi-facebook"></i></a>
+                <a href="https://www.instagram.com/nrwthv._/profilecard/?igsh=cjZwZ3pqejBraHRh" target="_blank"><i class="bi bi-instagram"></i></a>
+             </div>
+      </div>
+    </div>
+  </div><!-- End Team Member -->
+
+  <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+    <div class="team-member d-flex align-items-start">
+    <div class="pic"><img src="assets/img/team/kakael.jpg" class="img-fluid" alt=""></div>
+    <div class="member-info">
+        <h4>Laela</h4>
+        <span>Databases</span>
+                <p>Databases</p>
+              <div class="social">
+        <a href=""><i class="bi bi-facebook"></i></a>
+                <a href="https://www.instagram.com/nrwthv._/profilecard/?igsh=cjZwZ3pqejBraHRh" target="_blank"><i class="bi bi-instagram"></i></a>
+             </div>
+      </div>
+    </div>
+  </div><!-- End Team Member -->
+
+
+
+
+</div>
+
+</div>
+
+
+    
+
 
     </section><!-- /Team Section -->
 
