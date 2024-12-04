@@ -8,32 +8,38 @@
 
             <!-- menu profile quick info -->
             <div class="profile clearfix">
-              <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+         
+            <div class="profile_pic">
+                <img src="isi/images/fp/<?php echo $_SESSION['email']; ?>.jpg" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
-                <span>Welcome,</span>
-                <h2>M. Ikbal</h2>
+                <span>Welcome,sdfsdf</span>
+                <h2><?php echo $_SESSION['nama']; ?></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
 
             <br />
-
+<?php
+ 
+  ?>
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li><a href="index.php"><i class="fa fa-home"></i> Home</a> </li>
-                  <li><a href="index.php"><i class="fa fa-home"></i> Tentang Kami</a> </li>
-                  <li><a href="index.php"><i class="fa fa-home"></i> Services</a> </li>
-                  <li><a href="index.php"><i class="fa fa-home"></i> Galery</a> </li>
-                  <li><a href="index.php"><i class="fa fa-home"></i> Team</a> </li>
-                  <li><a href="index.php"><i class="fa fa-home"></i> Produk</a> </li>
-                  <li><a href="index.php"><i class="fa fa-home"></i> Contak</a> </li>
-                  <li><a href="index.php"><i class="fa fa-home"></i> Log Out</a> </li>
-
+                  <li><a href="media.php"><i class="fa fa-home"></i> Home <span class="fa fa-ellipsis-v"></span></a> </li>
+                  <?php 
+                   $query = mysqli_query($kon,"select *from menu where status_aktif = 'Y' order by urut");
+                   $tampung = mysqli_fetch_all($query, MYSQLI_ASSOC);
+                  
+                  foreach($tampung as $tampil): 
+                   $_SESSION[$tampil['link']] = $tampil['nama'].' | <small>'.$tampil['uraian_nama'].'</small>' ;
+                    ?>
+                    
+                  <li><a href="?page=<?php echo $tampil['link']; ?>"><i class="<?php echo $tampil['ikon']; ?>"></i> <?php echo $tampil['nama']; ?> <span class="fa fa-ellipsis-v"></span></a> </li>
+                  
+                  <?php endforeach; ?>
                 </ul>
               </div>
 
@@ -42,21 +48,45 @@
 
             </div>
             <!-- /sidebar menu -->
+  
+
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" data-placement="top" title="Settings">
-                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              <a data-toggle="tooltip" data-placement="top"  href="#">
+                <span class="glyphicon  " aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+              <script>
+function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+    
+  } else {
+    if
+ (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();   
+
+    }
+  }
+}</script>
+              <a onclick="toggleFullscreen()" data-toggle="tooltip" data-placement="top" title="FullScreen">
                 <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Lock">
-                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+</a>
+
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="logout.php">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
+
+              <a data-toggle="tooltip" data-placement="top" href="#">
+                <span class="glyphicon " aria-hidden="true"></span>
+              </a>
+
+
+              
             </div>
             <!-- /menu footer buttons -->
           </div>
@@ -73,7 +103,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">John Doe
+                    <img src="isi/images/fp/<?php echo $_SESSION['email']; ?>.jpg" alt=""><?php echo $_SESSION['nama']; ?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -85,7 +115,7 @@
                       </a>
                     </li>
                     <li><a href="javascript:;">Help</a></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    <li><a href="logout.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
 

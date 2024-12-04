@@ -1,3 +1,3 @@
 <?php
-header("location:media.php");
+header("location:login.php");
 ?>

@@ -1,4 +1,10 @@
+
+
+
+
+ 
 <?php
+// echo $_SESSION[$_GET['page']];
 if(isset($_GET['page'])){
     $page=$_GET['page'];
     if(file_exists("$page.php")){
@@ -19,6 +25,7 @@ if(isset($_GET['page'])){
      }
 
 }else{
+  
     include "home.php";
 }
 
