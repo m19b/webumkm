@@ -1,5 +1,5 @@
 <?php
-   include "variabel.php";
+   include "Admin/koneksi/variabel.php";
     try{
         if ($cek == "dev"){  
             if (is_dir("../../mysql/data")) {

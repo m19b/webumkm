@@ -1,6 +1,7 @@
 <?php
+include "variabel.php";
 try{
-    $kon = mysqli_connect("localhost","root","","tugaskelompok");
+    $kon = mysqli_connect("localhost","root","","$namadb");
 
 }catch(Exception $e){
     
