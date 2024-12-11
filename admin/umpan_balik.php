@@ -20,9 +20,9 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Data Tentang Kami </h2>
+                        <h2>Data Service </h2>
                         <ul class="nav navbar-right panel_toolbox">
-                            <li><a href="?page=tentangkami_add" class="close-link"> <button type="button"
+                            <li><a href="?page=umpan_balik_add" class="close-link"> <button type="button"
                                         class="btn btn-success">Tambah</button></a>
                             </li>
 
@@ -41,15 +41,16 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Posisi</th>
-                                                <th>Judul sdfs</th>
-                                                <th>Aktif</th>
-                                                <th>Ikon</th>
+                                                <th>Nama</th>
+                                                <th>Tanggal</th>
+                                                <th>Produk</th>
+                                                <th>Rating</th>
+                                                <th>Tindak Lanjut</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <?php
-                            $query = mysqli_query($kon,"Select *from tentang_kami");
+                            $query = mysqli_query($kon,"Select *from umpan_balik");
                             $tampung = mysqli_fetch_all($query, MYSQLI_ASSOC);
                             ?>
 
@@ -57,13 +58,14 @@
                                             <?php foreach($tampung as $index => $tampil): ?>
                                             <tr>
                                                 <td><?= $index + 1 ?></td>
-                                                <td><?=$tampil['level'] ;?></td>
-                                                <td><?=$tampil['judul'] ;?></td>
-                                                <td><?=$tampil['status_aktif']?></td>
-                                                <td><?=$tampil['ikon'] ;?></td>
-                                                <td><a href="?page=tentangkami_add&id=<?=$tampil['id'] ;?>"
+                                                <td><?=$tampil['nama'] ;?></td>
+                                                <td><?=$tampil['tanggal_umpan_balik'] ;?></td>
+                                                <td><?=$tampil['produk_layanan'] ;?></td>
+                                                <td><?=$tampil['rating']?></td>
+                                                <td><?=$tampil['tindak_lanjut']?></td>
+                                                <td><a href="?page=umpan_balik_add&id=<?=$tampil['id'] ;?>"
                                                         class="fa fa-pencil"></a> | <a
-                                                        href="?page=tentangkami_delete&id=<?=$tampil['id'] ;?>"
+                                                        href="?page=umpan_balik_delete&id=<?=$tampil['id'] ;?>"
                                                         class="fa fa-trash"></a></td>
 
                                             </tr>
