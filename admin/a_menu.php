@@ -21,18 +21,19 @@
                 </ul>
                 <ul class="nav side-menu">
                     <?php 
-                   $query = mysqli_query($kon,"select *from menu where status_aktif = 'Y' order by urut");
+                   $query = mysqli_query($kon,"select *from menu where posisi = 'bawah' and status_aktif = 'Y' order by urut");
                    $tampung = mysqli_fetch_all($query, MYSQLI_ASSOC);
                   
                   foreach($tampung as $tampil): 
                    $_SESSION[$tampil['link']] = $tampil['nama'].' | <small>'.$tampil['uraian_nama'].'</small>' ;
                     ?>
 
-                    <li><a href="?page=<?php echo $tampil['link']; ?>"><i class="<?php echo $tampil['ikon']; ?>"></i>
-                            <?php echo $tampil['nama']; ?> <span class="fa fa-ellipsis-v"></span></a> </li>
+                    <li><a href="<?=$tampil['link']; ?>"><i class="<?php echo $tampil['ikon']; ?>"></i>
+                            <?=$tampil['nama']; ?> <span class="fa fa-<?=$tampil['ikon_kanan']; ?>"></span></a> </li>
 
                     <?php endforeach; ?>
                 </ul>
+
             </div>
 
 
@@ -102,17 +103,11 @@
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
                         <li><a href="javascript:;"> Profile</a></li>
-                        <li>
-                            <a href="javascript:;">
-                                <span class="badge bg-red pull-right">50%</span>
-                                <span>Settings</span>
-                            </a>
-                        </li>
-                        <li><a href="javascript:;">Help</a></li>
+
                         <li><a href="logout.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                     </ul>
                 </li>
-
+                <!-- 
                 <li role="presentation" class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown"
                         aria-expanded="false">
@@ -177,7 +172,7 @@
                             </div>
                         </li>
                     </ul>
-                </li>
+                </li> -->
             </ul>
         </nav>
     </div>

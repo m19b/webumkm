@@ -53,10 +53,8 @@
             <nav id="navmenu" class="navmenu">
                 <ul>
                     <li><a href="#hero" class="active">Home</a></li>
-                    <li><a href="#about">Tentang Kami</a></li>
-                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
                     <li><a href="#portfolio">Galeri</a></li>
-                    <li><a href="#team">Team</a></li>
                     <li><a href="#pricing">Produk</a></li>
                     <li><a href="#umpan">Umpan Balik</a></li>
                     <li><a href="#why-us">Sering ditanya</a></li>
@@ -193,59 +191,39 @@
 
             </div>
 
-        </section><!-- /Services Section -->
-
-        <!-- Call To Action Section -->
-        <!-- <section id="call-to-action" class="call-to-action section dark-background">
-
-      <img src="assets/img/cta-bg.jpg" alt="">
-
-      <div class="container">
-
-        <div class="row" data-aos="zoom-in" data-aos-delay="100">
-          <div class="col-xl-9 text-center text-xl-start">
-            <h3>Call To Action</h3>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </div>
-          <div class="col-xl-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="#">Call To Action</a>
-          </div>
-        </div>
-
-      </div>
-
-    </section> -->
-        <!-- /Call To Action Section -->
 
 
-        <!-- About Section -->
-        <section id="services" class="services section">
+            <!-- /Call To Action Section -->
 
-            <!-- Section Title -->
-            <div class="container section-title" data-aos="fade-up">
-                <h2>Mengapa Memilih Kami?</h2>
-            </div><!-- End Section Title -->
 
-            <div class="container">
+            <!-- About Section -->
+            <section id="services" class="services section">
 
-                <div class="row gy-4">
+                <!-- Section Title -->
+                <div class="container section-title" data-aos="fade-up">
+                    <h2>Mengapa Memilih Kami?</h2>
+                </div><!-- End Section Title -->
 
-                    <?php
+                <div class="container">
+
+                    <div class="row gy-4">
+
+                        <?php
                             $query = mysqli_query($kon,"SELECT *FROM layanan WHERE status = 'aktif'");
                             $tampung = mysqli_fetch_all($query, MYSQLI_ASSOC);
                             foreach($tampung as $tampil3):
                             ?>
 
-                    <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
+                        <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
 
-                        <h5><?=$tampil3['judul']?></h5>
-                        <p><?=$tampil3['deskripsi']?></p>
+                            <h5><?=$tampil3['judul']?></h5>
+                            <p><?=$tampil3['deskripsi']?></p>
 
 
 
-                    </div>
-                    <?php endforeach; ?>
-                    <!-- 
+                        </div>
+                        <?php endforeach; ?>
+                        <!-- 
                     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
                         <h5>
                             🚚 Pengiriman Aman
@@ -259,77 +237,71 @@
                             e-wallet.</p>
                     </div> -->
 
+                    </div>
+
                 </div>
+
+            </section><!-- /About Section -->
+
+            <!-- Team Section -->
+            <section id="team" class="team section">
+
+                <!-- Section Title -->
+                <div class="container section-title" data-aos="fade-up">
+                    <h2>Team
+
+
+
+                    </h2>
+                    <p>Team Pengelola Website UMKM Desa Kami</p>
+                </div><!-- End Section Title -->
+
+                <div class="container">
+
+                    <div class="row gy-4">
+                        <?php 
+                    $query = mysqli_query($kon,"SELECT *FROM team");
+                    $tampung = mysqli_fetch_all($query,MYSQLI_ASSOC);
+                    foreach ($query as $tampil6):
+                        ?>
+                        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="team-member d-flex align-items-start">
+                                <div class="pic"><img src="Admin/isi/images/team/<?=$tampil6['foto']?>"
+                                        class="img-fluid" alt=""></div>
+                                <div class="member-info">
+                                    <h4><?=$tampil6['nama']?></h4>
+                                    <span><?=$tampil6['posisi']?></span>
+                                    <p><?=$tampil6['deskripsi']?></p>
+                                    <div class="social">
+                                        <a href="https://instagram.com/<?=$tampil6['facebook']?>" target="_blank"><i
+                                                class="bi bi-facebook"></i></a>
+                                        <a href="https://fb.com/<?=$tampil6['instagram']?>" target="_blank"><i
+                                                class="bi bi-instagram"></i></a>
+                                        <a href="https://gmail.com/<?=$tampil6['email']?>" target="_blank"><i
+                                                class="bi bi-envelope-paper"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- End Team Member -->
+                        <?php endforeach; ?>
+
+
+
+
+            </section><!-- /About Section -->
+
+
+
 
             </div>
 
-        </section><!-- /About Section -->
-
-        <!-- Why Us Section -->
-
-
-        <!-- Skills Section -->
-        <!-- <section id="skills" class="skills section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row">
-
-          <div class="col-lg-6 d-flex align-items-center">
-            <img src="assets/img/skills.png" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-6 pt-4 pt-lg-0 content">
-
-            <h3>Voluptatem dignissimos provident quasi corporis voluptas</h3>
-            <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-
-            <div class="skills-content skills-animation">
-
-              <div class="progress">
-                <span class="skill"><span>HTML</span> <i class="val">100%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div> 
-
-              <div class="progress">
-                <span class="skill"><span>CSS</span> <i class="val">90%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-
-              <div class="progress">
-                <span class="skill"><span>JavaScript</span> <i class="val">75%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-
-              <div class="progress">
-                <span class="skill"><span>Photoshop</span> <i class="val">55%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-
             </div>
 
-          </div>
-        </div>
-
-      </div>
-
-    </section> -->
-
-        <!-- /Skills Section -->
-
-        <!-- Services Section -->
 
 
+
+
+        </section><!-- /Team Section -->
         <!-- Portfolio Section -->
         <section id="portfolio" class="portfolio section">
 
@@ -384,64 +356,7 @@
 
         </section><!-- /Portfolio Section -->
 
-        <!-- Team Section -->
-        <section id="team" class="team section">
 
-            <!-- Section Title -->
-            <div class="container section-title" data-aos="fade-up">
-                <h2>Team
-
-
-
-                </h2>
-                <p>Team Pengelola Website UMKM Desa Kami</p>
-            </div><!-- End Section Title -->
-
-            <div class="container">
-
-                <div class="row gy-4">
-                    <?php 
-                    $query = mysqli_query($kon,"SELECT *FROM team");
-                    $tampung = mysqli_fetch_all($query,MYSQLI_ASSOC);
-                    foreach ($query as $tampil6):
-                        ?>
-                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                        <div class="team-member d-flex align-items-start">
-                            <div class="pic"><img src="Admin/isi/images/team/<?=$tampil6['foto']?>" class="img-fluid"
-                                    alt=""></div>
-                            <div class="member-info">
-                                <h4><?=$tampil6['nama']?></h4>
-                                <span><?=$tampil6['posisi']?></span>
-                                <p><?=$tampil6['deskripsi']?></p>
-                                <div class="social">
-                                    <a href="https://instagram.com/<?=$tampil6['facebook']?>" target="_blank"><i
-                                            class="bi bi-facebook"></i></a>
-                                    <a href="https://fb.com/<?=$tampil6['instagram']?>" target="_blank"><i
-                                            class="bi bi-instagram"></i></a>
-                                    <a href="https://gmail.com/<?=$tampil6['email']?>" target="_blank"><i
-                                            class="bi bi-envelope-paper"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- End Team Member -->
-                    <?php endforeach; ?>
-
-
-
-
-
-
-
-
-                </div>
-
-            </div>
-
-
-
-
-
-        </section><!-- /Team Section -->
 
         <!-- Pricing Section -->
         <section id="pricing" class="pricing section light-background">
@@ -708,7 +623,8 @@
                                 <article>
 
                                     <div class="post-img">
-                                        <img src="assets/img/blog/<?=$t3['gambar']; ?>" alt="" class="img-fluid">
+                                        <img src="Admin/isi/images/berita/<?=$t3['gambar']; ?>" alt=""
+                                            class="img-fluid">
                                     </div>
 
                                     <p class="post-category"><?=$t3['kategori'];?></p>

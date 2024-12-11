@@ -1,5 +1,5 @@
 <?php
-    $namadb = "tugaskelompok7";
+    $namadb = "tugaskelompok5";
     $cek = "dev";
 
     $isitb = "/*
@@ -9,13 +9,13 @@
  Source Server Type    : MySQL
  Source Server Version : 100432 (10.4.32-MariaDB)
  Source Host           : localhost:3306
- Source Schema         : tugaskelompok
+ Source Schema         : tugaskelompok7
 
  Target Server Type    : MySQL
  Target Server Version : 100432 (10.4.32-MariaDB)
  File Encoding         : 65001
 
- Date: 12/12/2024 01:40:40
+ Date: 12/12/2024 07:10:36
 */
 
 SET NAMES utf8mb4;
@@ -35,15 +35,15 @@ CREATE TABLE `berita`  (
   `status` enum('draft','publikasi') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT 'draft',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of berita
 -- ----------------------------
-INSERT INTO `berita` VALUES (1, 'Kebangkitan UMKM di Era Digital', 'Artikel tentang perkembangan UMKM dalam menghadapi transformasi digital', 'Admin Platform', 'visa.png', 'Teknologi', 'publikasi', '2024-12-11 12:22:18');
-INSERT INTO `berita` VALUES (2, 'Strategi Pemasaran UMKM Modern', 'Tips dan trik pemasaran untuk pelaku UMKM di era sekarang', 'Redaksi', 'visa.png', 'Bisnis', 'publikasi', '2024-12-11 12:22:18');
-INSERT INTO `berita` VALUES (3, 'Kebangkitan UMKM di Era Digital', 'Artikel tentang perkembangan UMKM dalam menghadapi transformasi digital', 'Admin Platform', 'umkm_digital.jpg', 'Teknologi', 'publikasi', '2024-12-11 04:22:18');
-INSERT INTO `berita` VALUES (4, 'Strategi Pemasaran UMKM Modern', 'Tips dan trik pemasaran untuk pelaku UMKM di era sekarang', 'Redaksi', 'pemasaran_umkm.jpg', 'Bisnis', 'publikasi', '2024-12-11 04:22:18');
+INSERT INTO `berita` VALUES (1, 'Kebangkitan UMKM di Era Digital', 'Artikel tentang perkembangan UMKM dalam menghadapi transformasi digital', 'Admin Platform', 'foto2.jpeg', 'Teknologi', 'publikasi', '2024-12-11 12:22:18');
+INSERT INTO `berita` VALUES (2, 'Strategi Pemasaran UMKM Modern', 'Tips dan trik pemasaran untuk pelaku UMKM di era sekarang', 'Redaksi', 'foto3.jpeg', 'Bisnis', 'publikasi', '2024-12-11 12:22:18');
+INSERT INTO `berita` VALUES (3, 'Kebangkitan UMKM di Era Digital', 'Artikel tentang perkembangan UMKM dalam menghadapi transformasi digital', 'Admin Platform', 'foto5.jpeg', 'Teknologi', 'publikasi', '2024-12-11 04:22:18');
+INSERT INTO `berita` VALUES (4, 'Strategi Pemasaran UMKM Modern', 'Tips dan trik pemasaran untuk pelaku UMKM di era sekarang', 'Redaksi', 'foto6.jpeg', 'Bisnis', 'publikasi', '2024-12-11 04:22:18');
 
 -- ----------------------------
 -- Table structure for contact
@@ -57,7 +57,7 @@ CREATE TABLE `contact`  (
   `pesan` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `status` enum('baru','dibaca','ditanggapi') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT 'baru',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of contact
@@ -75,7 +75,7 @@ CREATE TABLE `faq`  (
   `kategori` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `tanggal_ditambahkan` date NULL DEFAULT current_timestamp,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of faq
@@ -96,7 +96,7 @@ CREATE TABLE `galeri`  (
   `kategori` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of galeri
@@ -124,7 +124,7 @@ CREATE TABLE `layanan`  (
   `icon` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `status` enum('aktif','nonaktif') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT 'aktif',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of layanan
@@ -139,30 +139,35 @@ INSERT INTO `layanan` VALUES (4, '💳 Pembayaran Mudah ', 'Berbagai metode pemb
 -- ----------------------------
 DROP TABLE IF EXISTS `menu`;
 CREATE TABLE `menu`  (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int NULL DEFAULT NULL,
+  `posisi` enum('atas','bawah') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT 'bawah',
+  `groupp` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `ikon_kanan` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT 'ellipsis-v',
   `urut` int NOT NULL DEFAULT 99,
   `link` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `ikon` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT 'fa fa-home',
   `nama` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `status_aktif` enum('Y','T') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT 'T',
-  `uraian_nama` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+  `uraian_nama` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of menu
 -- ----------------------------
-INSERT INTO `menu` VALUES (1, 1, 'tentangkami', 'fa fa-info', 'Tentang Kami', 'Y', 'ini contoh tetang kami');
-INSERT INTO `menu` VALUES (2, 2, 'servis', 'fa fa-gift', 'Layanan', 'Y', NULL);
-INSERT INTO `menu` VALUES (3, 3, 'galeri', 'fa fa-image', 'Galeri', 'Y', NULL);
-INSERT INTO `menu` VALUES (4, 4, 'tim', 'fa fa-github', 'Team', 'Y', NULL);
-INSERT INTO `menu` VALUES (5, 5, 'produk', 'fa fa-shopping-cart', 'Produk', 'Y', NULL);
-INSERT INTO `menu` VALUES (7, 7, 'users', 'fa fa-users', 'Pengguna', 'Y', NULL);
-INSERT INTO `menu` VALUES (8, 99, 'menu', 'fa fa-tasks', 'Menu', 'Y', 'Untuk mengatur Menu');
-INSERT INTO `menu` VALUES (9, 8, 'berita', 'fa fa-list-alt', 'Berita', 'Y', 'Untuk Berita');
-INSERT INTO `menu` VALUES (10, 9, 'faq', 'fa fa-spinner', 'Faq', 'Y', 'Sering di Tanyakan');
-INSERT INTO `menu` VALUES (11, 10, 'pengusaha', 'fa fa-pie-chart', 'Pengusaha', 'Y', 'Daftar Usaha');
-INSERT INTO `menu` VALUES (12, 11, 'umpan_balik', 'fa fa-backward', 'Umpan Balik', 'Y', 'Masukan Pengguna');
+INSERT INTO `menu` VALUES (1, 'atas', '1', 'ellipsis-v', 1, '', 'fa fa-home', 'Informasi Umum', 'Y', NULL);
+INSERT INTO `menu` VALUES (2, 'bawah', '1', 'ellipsis-v', 2, '?page=tentangkami', 'fa fa-info', 'Tentang Kami', 'Y', 'ini contoh tetang kami');
+INSERT INTO `menu` VALUES (10, 'bawah', '3', 'ellipsis-v', 10, '?page=galeri', 'fa fa-image', 'Galeri', 'Y', NULL);
+INSERT INTO `menu` VALUES (11, 'bawah', '3', 'ellipsis-v', 11, '?page=tim', 'fa fa-github', 'Team', 'Y', NULL);
+INSERT INTO `menu` VALUES (7, 'bawah', '2', 'ellipsis-v', 7, '?page=produk', 'fa fa-shopping-cart', 'Produk', 'Y', NULL);
+INSERT INTO `menu` VALUES (12, 'bawah', '3', 'ellipsis-v', 12, '?page=users', 'fa fa-users', 'Pengguna', 'Y', NULL);
+INSERT INTO `menu` VALUES (14, 'bawah', '3', 'ellipsis-v', 14, '?page=menu', 'fa fa-tasks', 'Menu', 'Y', 'Untuk mengatur Menu');
+INSERT INTO `menu` VALUES (13, 'bawah', '3', 'ellipsis-v', 13, '?page=berita', 'fa fa-list-alt', 'Berita', 'Y', 'Untuk Berita');
+INSERT INTO `menu` VALUES (4, 'bawah', '1', 'ellipsis-v', 4, '?page=faq', 'fa fa-spinner', 'Faq', 'Y', 'Sering di Tanyakan');
+INSERT INTO `menu` VALUES (8, 'bawah', '2', 'ellipsis-v', 8, '?page=pengusaha', 'fa fa-pie-chart', 'Pengusaha', 'Y', 'Daftar Usaha');
+INSERT INTO `menu` VALUES (3, 'bawah', '1', 'ellipsis-v', 3, '?page=umpan_balik', 'fa fa-backward', 'Umpan Balik', 'Y', 'Masukan Pengguna');
+INSERT INTO `menu` VALUES (6, 'atas', '2', 'ellipsis-v', 6, '', 'fa fa-home', 'Produk & Layanan', 'Y', NULL);
+INSERT INTO `menu` VALUES (9, 'atas', '3', 'ellipsis-v', 9, '', 'fa fa-home', 'Navigasi ', 'Y', NULL);
+INSERT INTO `menu` VALUES (5, 'bawah', '1', 'ellipsis-v', 5, '?page=servis', 'fa fa-gift', 'Layanan', 'Y', NULL);
 
 -- ----------------------------
 -- Table structure for pengusaha
@@ -182,7 +187,7 @@ CREATE TABLE `pengusaha`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id`(`user_id` ASC) USING BTREE,
   CONSTRAINT `pengusaha_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of pengusaha
@@ -214,7 +219,7 @@ CREATE TABLE `produk`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `pengusaha_id`(`pengusaha_id` ASC) USING BTREE,
   CONSTRAINT `produk_ibfk_1` FOREIGN KEY (`pengusaha_id`) REFERENCES `pengusaha` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of produk
@@ -243,7 +248,7 @@ CREATE TABLE `team`  (
   `facebook` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `instagram` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of team
@@ -264,7 +269,7 @@ CREATE TABLE `tentang_kami`  (
   `status_aktif` enum('T','Y') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `ikon` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of tentang_kami
@@ -290,7 +295,7 @@ CREATE TABLE `umpan_balik`  (
   `komentar` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
   `tindak_lanjut` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of umpan_balik
@@ -320,7 +325,7 @@ CREATE TABLE `users`  (
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `username`(`username` ASC) USING BTREE,
   UNIQUE INDEX `email`(`email` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of users
@@ -330,6 +335,7 @@ INSERT INTO `users` VALUES (2, 'Nia', 'nurwatania007@gmail.com', '202cb962ac5907
 INSERT INTO `users` VALUES (3, 'Laela', 'laela@gmail.com', '202cb962ac59075b964b07152d234b70', 'Laela', 'pengusaha', '083456789012', 'Desa Kreatif, Mataram', 'prod-5.jpg', 'aktif', '2024-12-11 12:22:18');
 
 SET FOREIGN_KEY_CHECKS = 1;
+
 
 
     "

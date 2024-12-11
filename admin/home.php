@@ -25,65 +25,35 @@
     </div>
     <!-- /top tiles -->
 
+    <div class="clearfix"></div>
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="dashboard_graph">
-
-                <div class="row x_title">
-                    <div class="col-md-6">
-                        <h3>Network Activities <small>Graph title sub-title</small></h3>
-                    </div>
-
-                </div>
-
-                <div class="col-md-9 col-sm-9 col-xs-12">
-                    <div id="chart_plot_01" class="demo-placeholder"></div>
-                </div>
-                <div class="col-md-3 col-sm-3 col-xs-12 bg-white">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="x_panel">
                     <div class="x_title">
-                        <h2>Top Campaign Performance</h2>
+                        <h2>Bar graph <small>Sessions</small></h2>
+
                         <div class="clearfix"></div>
                     </div>
-
-                    <div class="col-md-12 col-sm-12 col-xs-6">
-                        <div>
-                            <p>Facebook Campaign</p>
-                            <div class="">
-                                <div class="progress progress_sm" style="width: 40%;">
-                                    <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="80">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <p>Twitter Campaign</p>
-                            <div class="">
-                                <div class="progress progress_sm" style="width: 76%;">
-                                    <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="60">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="x_content">
+                        <canvas id="mybarChart"></canvas>
                     </div>
-                    <div class="col-md-12 col-sm-12 col-xs-6">
-                        <div>
-                            <p>Conventional Media</p>
-                            <div class="">
-                                <div class="progress progress_sm" style="width: 80%;">
-                                    <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="40">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
                 </div>
+            </div>
 
-                <div class="clearfix"></div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Pie Graph Chart <small>Sessions</small></h2>
+
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <canvas id="pieChart"></canvas>
+                    </div>
+                </div>
             </div>
         </div>
-
     </div>
     <br />
 
