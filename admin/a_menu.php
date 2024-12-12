@@ -15,10 +15,8 @@
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
             <div class="menu_section">
                 <h3>Menu</h3>
-                <ul class="nav side-menu">
-                    <li><a href="media.php"><i class="fa fa-home"></i> Home <span class="fa fa-ellipsis-v"></span></a>
-                    </li>
-                </ul>
+                <!-- <ul class="nav side-menu">
+                </ul> -->
                 <ul class="nav side-menu">
                     <?php 
                    $query = mysqli_query($kon,"select *from menu where posisi = 'bawah' and status_aktif = 'Y' order by urut");
@@ -28,15 +26,22 @@
                    $_SESSION[$tampil['link']] = $tampil['nama'].' | <small>'.$tampil['uraian_nama'].'</small>' ;
                     ?>
 
-                    <li><a href="<?=$tampil['link']; ?>"><i class="<?php echo $tampil['ikon']; ?>"></i>
-                            <?=$tampil['nama']; ?> <span class="fa fa-<?=$tampil['ikon_kanan']; ?>"></span></a> </li>
+                    <li><a href="?page=<?=$tampil['link']; ?>"><i class="<?php echo $tampil['ikon']; ?>"></i>
+                            <?=$tampil['nama']; ?> <span
+                                class="fa fa-<?=($_GET['page'] <> $tampil['link']) ? "" : "play" ?> "></span></span>
+                        </a> </li>
 
                     <?php endforeach; ?>
+
+
                 </ul>
 
             </div>
 
 
+
+
+            <!--  -->
 
 
         </div>

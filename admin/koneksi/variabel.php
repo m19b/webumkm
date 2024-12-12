@@ -9,13 +9,13 @@
  Source Server Type    : MySQL
  Source Server Version : 100432 (10.4.32-MariaDB)
  Source Host           : localhost:3306
- Source Schema         : tugaskelompok7
+ Source Schema         : tugaskelompok5
 
  Target Server Type    : MySQL
  Target Server Version : 100432 (10.4.32-MariaDB)
  File Encoding         : 65001
 
- Date: 12/12/2024 07:10:36
+ Date: 12/12/2024 08:28:41
 */
 
 SET NAMES utf8mb4;
@@ -154,20 +154,21 @@ CREATE TABLE `menu`  (
 -- ----------------------------
 -- Records of menu
 -- ----------------------------
-INSERT INTO `menu` VALUES (1, 'atas', '1', 'ellipsis-v', 1, '', 'fa fa-home', 'Informasi Umum', 'Y', NULL);
-INSERT INTO `menu` VALUES (2, 'bawah', '1', 'ellipsis-v', 2, '?page=tentangkami', 'fa fa-info', 'Tentang Kami', 'Y', 'ini contoh tetang kami');
-INSERT INTO `menu` VALUES (10, 'bawah', '3', 'ellipsis-v', 10, '?page=galeri', 'fa fa-image', 'Galeri', 'Y', NULL);
-INSERT INTO `menu` VALUES (11, 'bawah', '3', 'ellipsis-v', 11, '?page=tim', 'fa fa-github', 'Team', 'Y', NULL);
-INSERT INTO `menu` VALUES (7, 'bawah', '2', 'ellipsis-v', 7, '?page=produk', 'fa fa-shopping-cart', 'Produk', 'Y', NULL);
-INSERT INTO `menu` VALUES (12, 'bawah', '3', 'ellipsis-v', 12, '?page=users', 'fa fa-users', 'Pengguna', 'Y', NULL);
-INSERT INTO `menu` VALUES (14, 'bawah', '3', 'ellipsis-v', 14, '?page=menu', 'fa fa-tasks', 'Menu', 'Y', 'Untuk mengatur Menu');
-INSERT INTO `menu` VALUES (13, 'bawah', '3', 'ellipsis-v', 13, '?page=berita', 'fa fa-list-alt', 'Berita', 'Y', 'Untuk Berita');
-INSERT INTO `menu` VALUES (4, 'bawah', '1', 'ellipsis-v', 4, '?page=faq', 'fa fa-spinner', 'Faq', 'Y', 'Sering di Tanyakan');
-INSERT INTO `menu` VALUES (8, 'bawah', '2', 'ellipsis-v', 8, '?page=pengusaha', 'fa fa-pie-chart', 'Pengusaha', 'Y', 'Daftar Usaha');
-INSERT INTO `menu` VALUES (3, 'bawah', '1', 'ellipsis-v', 3, '?page=umpan_balik', 'fa fa-backward', 'Umpan Balik', 'Y', 'Masukan Pengguna');
-INSERT INTO `menu` VALUES (6, 'atas', '2', 'ellipsis-v', 6, '', 'fa fa-home', 'Produk & Layanan', 'Y', NULL);
-INSERT INTO `menu` VALUES (9, 'atas', '3', 'ellipsis-v', 9, '', 'fa fa-home', 'Navigasi ', 'Y', NULL);
-INSERT INTO `menu` VALUES (5, 'bawah', '1', 'ellipsis-v', 5, '?page=servis', 'fa fa-gift', 'Layanan', 'Y', NULL);
+INSERT INTO `menu` VALUES (2, 'atas', '1', 'ellipsis-v', 1, '', 'fa fa-home', 'Informasi Umum', 'Y', NULL);
+INSERT INTO `menu` VALUES (3, 'bawah', '1', 'ellipsis-v', 2, 'tentangkami', 'fa fa-info', 'Tentang Kami', 'Y', 'ini contoh tetang kami');
+INSERT INTO `menu` VALUES (11, 'bawah', '3', 'ellipsis-v', 10, 'galeri', 'fa fa-image', 'Galeri', 'Y', NULL);
+INSERT INTO `menu` VALUES (12, 'bawah', '3', 'ellipsis-v', 11, 'tim', 'fa fa-github', 'Team', 'Y', NULL);
+INSERT INTO `menu` VALUES (8, 'bawah', '2', 'ellipsis-v', 7, 'produk', 'fa fa-shopping-cart', 'Produk', 'Y', NULL);
+INSERT INTO `menu` VALUES (13, 'bawah', '3', 'ellipsis-v', 12, 'users', 'fa fa-users', 'Pengguna', 'Y', NULL);
+INSERT INTO `menu` VALUES (15, 'bawah', '3', 'ellipsis-v', 14, 'menu', 'fa fa-tasks', 'Menu', 'Y', 'Untuk mengatur Menu');
+INSERT INTO `menu` VALUES (14, 'bawah', '3', 'ellipsis-v', 13, 'berita', 'fa fa-list-alt', 'Berita', 'Y', 'Untuk Berita');
+INSERT INTO `menu` VALUES (5, 'bawah', '1', 'ellipsis-v', 4, 'faq', 'fa fa-spinner', 'Faq', 'Y', 'Sering di Tanyakan');
+INSERT INTO `menu` VALUES (9, 'bawah', '2', 'ellipsis-v', 8, 'pengusaha', 'fa fa-pie-chart', 'Pengusaha', 'Y', 'Daftar Usaha');
+INSERT INTO `menu` VALUES (4, 'bawah', '1', 'ellipsis-v', 3, 'umpan_balik', 'fa fa-backward', 'Umpan Balik', 'Y', 'Masukan Pengguna');
+INSERT INTO `menu` VALUES (7, 'atas', '2', 'ellipsis-v', 6, '', 'fa fa-home', 'Produk & Layanan', 'Y', NULL);
+INSERT INTO `menu` VALUES (10, 'atas', '3', 'ellipsis-v', 9, '', 'fa fa-home', 'Navigasi ', 'Y', NULL);
+INSERT INTO `menu` VALUES (6, 'bawah', '1', 'ellipsis-v', 5, 'servis', 'fa fa-gift', 'Layanan', 'Y', NULL);
+INSERT INTO `menu` VALUES (1, 'bawah', '0', 'ellipsis-v', 0, 'home', 'fa fa-home', 'Home', 'Y', 'Home');
 
 -- ----------------------------
 -- Table structure for pengusaha
@@ -335,7 +336,6 @@ INSERT INTO `users` VALUES (2, 'Nia', 'nurwatania007@gmail.com', '202cb962ac5907
 INSERT INTO `users` VALUES (3, 'Laela', 'laela@gmail.com', '202cb962ac59075b964b07152d234b70', 'Laela', 'pengusaha', '083456789012', 'Desa Kreatif, Mataram', 'prod-5.jpg', 'aktif', '2024-12-11 12:22:18');
 
 SET FOREIGN_KEY_CHECKS = 1;
-
 
 
     "

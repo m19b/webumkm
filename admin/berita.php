@@ -2,7 +2,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3><?php echo $_SESSION[$_GET['page']]; ?></h3>
+                <h3><?=$_GET['page'] ?><?=$_SESSION[$_GET['page']]; ?></h3>
                 <br />
             </div>
 
@@ -16,7 +16,7 @@
 
 
 
-
+            <?=$_SESSION['berita'] ?>
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
