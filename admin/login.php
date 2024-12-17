@@ -48,7 +48,7 @@ include "koneksi/koneksi.php";
                   $_SESSION['email']=$tampil['email'];
                   $_SESSION['nama']=$tampil['nama_lengkap'];
                   $_SESSION['username']=$tampil['username'];
-                  header ("location:media.php");
+                  header ("location:media.php?page=home");
 
                 }else{
                 echo "

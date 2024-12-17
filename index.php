@@ -40,36 +40,7 @@
 </head>
 
 <body class="index-page">
-
-    <header id="header" class="header d-flex align-items-center fixed-top">
-        <div class="container-fluid container-xl position-relative d-flex align-items-center">
-
-            <a href="#hero" class="logo d-flex align-items-center me-auto">
-                <!-- Uncomment the line below if you also wish to use an image logo -->
-                <!-- <img src="assets/img/logo.png" alt=""> -->
-                <h1 class="sitename">UMKM</h1>
-            </a>
-
-            <nav id="navmenu" class="navmenu">
-                <ul>
-                    <li><a href="#hero" class="active">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#portfolio">Galeri</a></li>
-                    <li><a href="#pricing">Produk</a></li>
-                    <li><a href="#umpan">Umpan Balik</a></li>
-                    <li><a href="#why-us">Sering ditanya</a></li>
-
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#berita">Berita</a></li>
-
-                </ul>
-                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-            </nav>
-
-            <!-- <a class="btn-getstarted" href="#pricing">Belanja Sekarang</a> -->
-
-        </div>
-    </header>
+    <?php include "a_header.php"; ?>
 
     <main class="main">
 
@@ -86,7 +57,7 @@
                         <p>Produk berkualitas dari tangan kreatif masyarakat desa, menghadirkan cita rasa dan keindahan
                             tradisional dengan sentuhan modern.</p>
                         <div class="d-flex">
-                            <a href="#about" class="btn-get-started">BELANJA SEKARANG</a>
+                            <a href="#pricing" class="btn-get-started">BELANJA SEKARANG</a>
                             <!-- <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a> -->
                         </div>
                     </div>
@@ -273,9 +244,9 @@
                                     <span><?=$tampil6['posisi']?></span>
                                     <p><?=$tampil6['deskripsi']?></p>
                                     <div class="social">
-                                        <a href="https://instagram.com/<?=$tampil6['facebook']?>" target="_blank"><i
+                                        <a href="https://fb.com/<?=$tampil6['facebook']?>" target="_blank"><i
                                                 class="bi bi-facebook"></i></a>
-                                        <a href="https://fb.com/<?=$tampil6['instagram']?>" target="_blank"><i
+                                        <a href="https://instagram.com/<?=$tampil6['instagram']?>" target="_blank"><i
                                                 class="bi bi-instagram"></i></a>
                                         <a href="https://gmail.com/<?=$tampil6['email']?>" target="_blank"><i
                                                 class="bi bi-envelope-paper"></i></a>
@@ -339,9 +310,9 @@
                                 <h4><?=$tampil5['judul']?></h4>
                                 <p><?=$tampil5['deskripsi']?></p>
 
-                                <a href="Admin/isi/images/galeri/<?=$tampil5['gambar']?>" title="App 1"
-                                    data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
-                                        class="bi bi-zoom-in"></i></a>
+                                <a href="Admin/isi/images/galeri/<?=$tampil5['gambar']?>"
+                                    title="<?=$tampil5['judul'] ?>" data-gallery="portfolio-gallery-app"
+                                    class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                                 <!-- <a href="portfolio-details.html" title="More Details" class="details-link"><i
                                         class="bi bi-link-45deg"></i></a> -->
                             </div>
@@ -359,7 +330,7 @@
 
 
         <!-- Pricing Section -->
-        <section id="pricing" class="pricing section light-background">
+        <section id=" pricing" class="pricing section light-background">
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
@@ -379,12 +350,16 @@
                         <div class="pricing-item">
                             <!-- featured -->
                             <h3><?=$tampil7['nama_produk']?></h3>
-                            <h4><sup>Rp.</sup><?=$tampil7['harga']?> <span>(1 <?=$tampil7['satuan']?>) </span></h4>
+                            <h4><sup>Rp.</sup><?=$tampil7['harga']?> <span>(1
+                                    <?=$tampil7['satuan']?>) </span></h4>
                             <ul>
 
 
-                                <li><i class="bi bi-check"></i> <span><?=$tampil7['deskripsi']?></span></li>
-                                <li><i class="bi bi-check"></i> <span>Kategori : <?=$tampil7['kategori']?></span></li>
+                                <li><i class="bi bi-check"></i>
+                                    <span><?=$tampil7['deskripsi']?></span>
+                                </li>
+                                <li><i class="bi bi-check"></i> <span>Kategori :
+                                        <?=$tampil7['kategori']?></span></li>
 
                                 <div class="pic"><img src="Admin/isi/images/produk/<?=$tampil7['gambar']?>"
                                         class="img-fluid" alt=""></div>
@@ -463,49 +438,113 @@
 
                 </section><!-- /Testimonials Section -->
 
-                <section id="why-us" class="section why-us light-background" data-builder="section">
+            </section><!-- /Why Us Section -->
 
-                    <div class="container-fluid">
 
-                        <div class="row gy-4">
 
-                            <div class="col-lg-7 d-flex flex-column justify-content-center order-2 order-lg-1">
 
-                                <div class="content px-xl-5" data-aos="fade-up" data-aos-delay="100">
-                                    <h3><span>Pertanyaan yang Sering Diajukan</strong></h3>
+            <section id="berita" class="pricing section light-background">
 
-                                </div>
+                <div class="container">
+                    <!-- Section Title -->
+                    <div class="container section-title" data-aos="fade-up">
+                        <h2>Postingan Terbaru</h2>
+                        <p>Berita Terbaru Tentang UMKM Mataram - NTB</p>
+                    </div><!-- End Section Title -->
+                    <div class="row gy-4">
+                        <?php
+                  $query = mysqli_query($kon, "SELECT *FROM berita ORDER BY created_at DESC LIMIT 3");
+                  $tampung = mysqli_fetch_all($query,MYSQLI_ASSOC);
+                  foreach($tampung as $t3):
 
-                                <div class="faq-container px-xl-5" data-aos="fade-up" data-aos-delay="200">
-                                    <?php 
+                  
+                  ?>
+                        <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="pricing-item">
+                                <article>
+
+                                    <div class="post-img">
+                                        <img src="Admin/isi/images/berita/<?=$t3['gambar']; ?>" alt=""
+                                            class="img-fluid">
+                                    </div>
+
+                                    <p class="post-category"><?=$t3['kategori'];?></p>
+
+                                    <h2 class="title">
+                                        <a href="blog-details.php?id=<?=$t3['id'];?>"><?=$t3['judul'];?></a>
+                                    </h2>
+
+                                    <div class="d-flex align-items-center">
+                                        <img src="assets/img/blog/<?=$t3['penulis']?>.jpg" alt=""
+                                            class="img-fluid post-author-img flex-shrink-0">
+                                        <div class="post-meta">
+                                            <p class="post-author"><?=$t3['konten']?></p>
+                                            <p class="post-author"><?=$t3['penulis']?></p>
+                                            <p class=" post-date">
+                                            <p><?= $t3['created_at']?></p>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </article>
+                            </div><!-- End post list item -->
+                        </div><!-- End post list item -->
+
+                        <?php endforeach; ?>
+
+
+                    </div>
+                    <div class="col-md-12 text-center">
+                        <br>
+                        <a href="berita.php" class="buy-btn">Selengkapnya</a>
+
+
+                    </div>
+                </div>
+
+            </section><!-- /Blog Posts Section -->
+
+            <section id="why-us" class="section why-us light-background" data-builder="section">
+
+                <div class="container-fluid">
+
+                    <div class="row gy-4">
+
+                        <div class="col-lg-7 d-flex flex-column justify-content-center order-2 order-lg-1">
+
+                            <div class="content px-xl-5" data-aos="fade-up" data-aos-delay="100">
+                                <h3><span>Pertanyaan yang Sering Diajukan</strong></h3>
+
+                            </div>
+
+                            <div class="faq-container px-xl-5" data-aos="fade-up" data-aos-delay="200">
+                                <?php 
                                     $query = mysqli_query($kon,"SELECT *FROM faq");
                                     $tampung = mysqli_fetch_all($query, MYSQLI_ASSOC);
                                     foreach ($tampung as $nmr => $t2):
                                         ?>
-                                    <div class="faq-item faq-active">
+                                <div class="faq-item faq-active">
 
-                                        <h3><span><?=$nmr+1?>.</span> <?=$t2['pertanyaan']?></h3>
-                                        <div class="faq-content">
-                                            <p><?=$t2['jawaban']?></p>
-                                        </div>
-                                        <i class="faq-toggle bi bi-chevron-right"></i>
-                                    </div><!-- End Faq item-->
-                                    <?php endforeach; ?>
-                                </div>
-
+                                    <h3><span><?=$nmr+1?>.</span> <?=$t2['pertanyaan']?></h3>
+                                    <div class="faq-content">
+                                        <p><?=$t2['jawaban']?></p>
+                                    </div>
+                                    <i class="faq-toggle bi bi-chevron-right"></i>
+                                </div><!-- End Faq item-->
+                                <?php endforeach; ?>
                             </div>
 
-                            <div class="col-lg-5 order-1 order-lg-2 why-us-img">
-                                <img src="assets/img/why-us.png" class="img-fluid" alt="" data-aos="zoom-in"
-                                    data-aos-delay="100">
-                            </div>
                         </div>
 
+                        <div class="col-lg-5 order-1 order-lg-2 why-us-img">
+                            <img src="assets/img/why-us.png" class="img-fluid" alt="" data-aos="zoom-in"
+                                data-aos-delay="100">
+                        </div>
                     </div>
 
-                </section><!-- /Why Us Section -->
-            </section><!-- /Why Us Section -->
+                </div>
 
+            </section><!-- /Why Us Section -->
             <!-- Contact Section -->
             <section id="contact" class="contact section">
 
@@ -601,87 +640,15 @@
             </section><!-- /Contact Section -->
 
 
-
-            <section id="berita" class="pricing section light-background">
-
-                <div class="container">
-                    <!-- Section Title -->
-                    <div class="container section-title" data-aos="fade-up">
-                        <h2>Postingan Terbaru</h2>
-                        <p>Berita Terbaru Tentang UMKM Mataram - NTB</p>
-                    </div><!-- End Section Title -->
-                    <div class="row gy-4">
-                        <?php
-                  $query = mysqli_query($kon, "SELECT *FROM berita ");
-                  $tampung = mysqli_fetch_all($query,MYSQLI_ASSOC);
-                  foreach($tampung as $t3):
-
-                  
-                  ?>
-                        <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="pricing-item">
-                                <article>
-
-                                    <div class="post-img">
-                                        <img src="Admin/isi/images/berita/<?=$t3['gambar']; ?>" alt=""
-                                            class="img-fluid">
-                                    </div>
-
-                                    <p class="post-category"><?=$t3['kategori'];?></p>
-
-                                    <h2 class="title">
-                                        <a href="blog-details.php?id=<?=$t3['id'];?>"><?=$t3['judul'];?></a>
-                                    </h2>
-
-                                    <div class="d-flex align-items-center">
-                                        <img src="assets/img/blog/<?=$t3['penulis']?>.jpg" alt=""
-                                            class="img-fluid post-author-img flex-shrink-0">
-                                        <div class="post-meta">
-                                            <p class="post-author"><?=$t3['konten']?></p>
-                                            <p class="post-author"><?=$t3['penulis']?></p>
-                                            <p class=" post-date">
-                                            <p><?= $t3['created_at']?></p>
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                </article>
-                            </div><!-- End post list item -->
-                        </div><!-- End post list item -->
-
-                        <?php endforeach; ?>
-
-
-                    </div>
-                </div>
-
-            </section><!-- /Blog Posts Section -->
-
-
-
-
     </main>
 
-    <footer id="footer" class="footer">
+    <?php include "a_footer.php"; ?>
 
-
-        <div class="container copyright text-center mt-4">
-            <p>© <span>Copyright</span> <strong class="px-1 sitename">BootstrapMade</strong> <span>Semua Hak Cipta
-                    Dilindungi</span></p>
-            <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you've purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-                Designed by <a href="#">Kelompok 7</a>
-            </div>
-        </div>
-
-    </footer>
 
     <!-- Scroll Top -->
     <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
+
 
     <!-- Preloader -->
     <div id="preloader"></div>

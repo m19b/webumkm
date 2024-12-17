@@ -58,7 +58,7 @@
                                             <tr>
                                                 <td><?= $index + 1 ?></td>
                                                 <td><img height="50" width="50"
-                                                        src="isi/images/galeri/<?=$tampil['foto']?>" alt="">
+                                                        src="isi/images/team/<?=$tampil['foto']?>" alt="">
                                                 </td>
 
                                                 <td><?=$tampil['nama'] ;?></td>
