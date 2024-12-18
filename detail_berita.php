@@ -53,6 +53,7 @@
                   $query = mysqli_query($kon, "SELECT *FROM berita WHERE id = '$idberita'");
                   $tampung = mysqli_fetch_all($query,MYSQLI_ASSOC);
                   foreach($tampung as $t3):
+   $tgl = date_create($t3['created_at']);
 
                   
                   ?>
@@ -61,38 +62,54 @@
                 <div class="container section-title" data-aos="fade-up">
                     <h2><?=$t3['judul'];?></h2>
                     <p>
-                    <p><?= $t3['created_at']?></p>
+                    <p><button type="button" class="btn btn-success" disabled><i class="bi bi-calendar3"></i>
+                            <?=date_format($tgl, "d M Y  H:i:s")?></button>
+                    </p>
+
                     </p>
                 </div><!-- End Section Title -->
-                <div class="row gy-4">
+                <div class="row">
 
                     <div class="col-lg-12" data-aos="zoom-in" data-aos-delay="100">
                         <div class="pricing-item">
                             <article>
 
-                                <div class="post-img">
-                                    <img src="Admin/isi/images/berita/<?=$t3['gambar']; ?>" alt="" class="img-fluid">
+                                <div class="text-center">
+                                    <img src="Admin/isi/images/berita/<?=$t3['gambar']; ?>" alt="" class="img-fluid"
+                                        alt="Responsive image" style="float:top;width:600px;height:250px;">
                                 </div>
+                                <br>
 
-                                <p class="post-category"><?=$t3['kategori'];?></p>
 
-                                <h2 class="title">
-                                    <a href="blog-details.php?id=<?=$t3['id'];?>"><?=$t3['judul'];?></a>
-                                </h2>
+
 
                                 <div class="d-flex align-items-center">
                                     <img src="assets/img/blog/<?=$t3['penulis']?>.jpg" alt=""
                                         class="img-fluid post-author-img flex-shrink-0">
                                     <div class="post-meta">
-                                        <p class="post-author"><?=$t3['konten']?></p>
-                                        <p class="post-author"><?=$t3['penulis']?></p>
+
+                                        <p class="text-justify post-author"><?=$t3['konten']?></p>
+
                                         <p class=" post-date">
-                                        <p><?= $t3['created_at']?></p>
+
                                         </p>
                                     </div>
                                 </div>
 
                             </article>
+                            <div class="absolute">
+
+
+
+                                <button type="button" class="btn btn-info"><i class="bi bi-person-check"></i>
+                                    <?=$t3['penulis'];?></button> &nbsp
+                                &nbsp
+                                <button type="button" class="btn btn-info"><i class="bi bi-bookmarks"></i>
+                                    <?=$t3['kategori'];?></button>
+
+
+                                <!-- echo date_format($date,"Y/m/d H:i:s"); -->
+                            </div>
                         </div><!-- End post list item -->
                     </div><!-- End post list item -->
 

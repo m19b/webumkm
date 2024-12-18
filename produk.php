@@ -49,13 +49,13 @@
 
 
         <!-- Starter Section Section -->
-        <section id="berita" class="pricing section light-background">
+        <section id="pricing" class="pricing section light-background">
 
             <div class="container">
                 <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
                     <div class="btn-group" role="group" aria-label="First group">
                         <a href="index.php#hero" type="button" class="btn btn-secondary">Home</a>
-                        <button type="button" class="btn btn-secondary">Berita</button>
+                        <button type="button" class="btn btn-secondary">Produk</button>
                     </div>
                     <div class="input-group">
 
@@ -67,63 +67,104 @@
                 </div>
                 <!-- Section Title -->
                 <div class="container section-title" data-aos="fade-up">
-                    <h2>Postingan Terbaru</h2>
-                    <p>Berita Terbaru Tentang UMKM Mataram - NTB</p>
+                    <h2>Produk UMKM</h2>
+                    <p>Semua Produk UMKM Mataram - NTB</p>
                 </div><!-- End Section Title -->
+
                 <div class="row gy-4">
                     <?php
-                  $query = mysqli_query($kon, "SELECT SUBSTRING(konten, 1, 100) konten, penulis, judul, kategori, gambar, id,created_at FROM berita ORDER BY created_at DESC ");
-
-                  $tampung = mysqli_fetch_all($query,MYSQLI_ASSOC);
-                  foreach($tampung as $t3):
-   $tgl = date_create($t3['created_at']);
-                  
-                  ?>
+                    $query = mysqli_query($kon, "SELECT
+	pengusaha.nama_usaha,
+	pengusaha.jenis_umkm,
+	produk.id,
+	produk.nama_produk,
+	produk.deskripsi,
+	produk.harga,
+	produk.satuan,
+	produk.stok,
+	produk.kategori,
+	produk.gambar,
+	users.nama_lengkap 
+FROM
+	produk
+	INNER JOIN pengusaha ON produk.pengusaha_id = pengusaha.id
+	INNER JOIN users ON pengusaha.user_id = users.id where produk.status = 'aktif' ORDER BY id Desc ");
+                    $tampung = mysqli_fetch_all($query, MYSQLI_ASSOC);
+                    foreach($tampung as $tampil7):
+                        ?>
                     <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="pricing-item">
-                            <article>
 
-                                <div class="post-img">
-                                    <img src="Admin/isi/images/berita/<?=$t3['gambar']; ?>" alt="" class="img-fluid"
-                                        style="float:right;width:400px;height:200px;">
+
+
+                        <div class="pricing-item">
+                            <!-- featured -->
+                            <div class="absolute-top">
+                                <h3><?=$tampil7['nama_produk']?></h3>
+                            </div>
+
+
+                            <ul>
+
+
+
+
+                                <div class="pic"><img src="Admin/isi/images/produk/<?=$tampil7['gambar']?>" heig
+                                        class="img-fluid" alt="" style="float:right;width:600px;height:250px;">
                                 </div>
 
-
-
-                                <h2 class="title">
-                                    <a href="detail_berita.php?id=<?=$t3['id'];?>"><?=$t3['judul'];?></a>
-                                </h2>
-
-
-                                <div class="d-flex align-items-center">
-                                    <div class="post-meta">
-                                        <p class="post-author"><?=$t3['konten']?>... <a
-                                                href="detail_berita.php?id=<?=$t3['id'];?>">Selengkapnya</a></p>
-                                        <p class=" post-date">
-                                        <div class="absolute">
-
-
-                                            <div class="btn-group btn-sm" role="group" aria-label="Basic example">
-                                                <button type="button" class="btn btn-success btn-sm" disabled><i
-                                                        class="bi bi-calendar3"></i>
-                                                    <?=date_format($tgl, "d M Y")?></button>
-                                                <button type="button" class="btn btn-secondary btn-sm"><i
-                                                        class="bi bi-person-check"></i>
-                                                    <?=$t3['penulis'];?></button>
-                                                <button type="button" class="btn btn-info btn-sm"><i
-                                                        class="bi bi-bookmarks"></i> <?=$t3['kategori'];?></button>
-                                            </div>
-                                            <!-- echo date_format($date,"Y/m/d H:i:s"); -->
-                                        </div>
-                                        </p>
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-sm-4 col-form-label">Pengusaha</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" readonly class="form-control-plaintext" id="staticEmail"
+                                            value="<?=$tampil7['nama_lengkap']?>">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-sm-4 col-form-label">Usaha</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" readonly class="form-control-plaintext" id="staticEmail"
+                                            value="<?=$tampil7['nama_usaha']?>">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-sm-4 col-form-label">Kategori</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" readonly class="form-control-plaintext" id="staticEmail"
+                                            value="<?=$tampil7['kategori']?>">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-sm-4 col-form-label">Stok</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" readonly class="form-control-plaintext" id="staticEmail"
+                                            value="<?=$tampil7['stok']?> ">
                                     </div>
                                 </div>
 
-                            </article>
-                        </div><!-- End post list item -->
-                    </div><!-- End post list item -->
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-sm-4 col-form-label">Harga</label>
+                                    <div class="col-sm-8">
+                                        <h5><?=$tampil7['harga']?> /<span><?=$tampil7['satuan']?></span></h5>
+                                    </div>
+                                </div>
 
+                                <br>
+                                <label for="staticEmail" class="col-sm-12 col-form-label">Deskripsi : </label>
+                                <span><?=$tampil7['deskripsi']?></span>
+
+                            </ul>
+                            <div class="absolute">
+                                <a href=""> <button type="button" class="btn btn-outline-primary"><i
+                                            class="bi bi-cart4"></i> Keranjang</button></a> &nbsp | &nbsp
+                                <a href=""> <button type="button" class="btn btn-outline-success"><i
+                                            class="bi bi-bag-check"></i> Beli Langsung</button></a>
+
+
+                            </div>
+                        </div>
+                    </div><!-- End Pricing Item -->
                     <?php endforeach; ?>
+
 
 
                 </div>
@@ -144,7 +185,6 @@
                     </ul>
                 </nav>
             </div>
-
         </section><!-- /Blog Posts Section -->
     </main>
 

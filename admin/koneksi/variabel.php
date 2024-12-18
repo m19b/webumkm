@@ -301,11 +301,11 @@ CREATE TABLE `umpan_balik`  (
 -- ----------------------------
 -- Records of umpan_balik
 -- ----------------------------
-INSERT INTO `umpan_balik` VALUES (1, 'Saul Goodman', 'saul@gmail.com', 'testimonials-1.jpg', '2023-11-25', 'Produk A', 3, 'Saya sangat puas dengan produk yang saya beli. Kualitasnya luar biasa dan sesuai dengan deskripsi yang diberikan. Pengirimannya juga cepat dan kemasan sangat rapi. Terima kasih banyak, pasti akan membeli lagi!.', NULL);
-INSERT INTO `umpan_balik` VALUES (2, 'Sara Wilsson', 'sara@gmail.com', 'testimonials-2.jpg', '2023-11-24', 'Produk B', 5, 'Produk yang saya beli sangat nyaman digunakan, dan hasilnya sesuai ekspektasi. Terima kasih atas layanan yang luar biasa. Saya pasti kembali untuk berbelanja lagi!.', NULL);
-INSERT INTO `umpan_balik` VALUES (3, 'Jena Karlis', 'jena@gmail.com', 'testimonials-3.jpg', '2023-11-26', 'Produk A', 5, 'Layanan yang luar biasa! Produk sangat bagus dan pengiriman tepat waktu. Saya akan terus berbelanja di sini karena kualitas dan pelayanan yang sangat memuaskan.', NULL);
-INSERT INTO `umpan_balik` VALUES (4, 'Matt Brandon', 'matt@gmail.com', 'testimonials-4.jpg', '2024-12-03', 'produk c', 5, 'Produk yang saya beli sangat memenuhi harapan! Kualitasnya sangat baik dan pengiriman sangat cepat. Saya pasti akan membeli lagi di sini.', NULL);
-INSERT INTO `umpan_balik` VALUES (5, 'John Larson', 'john@gmail.com', 'testimonials-5.jpg', '2024-12-01', 'produk C', 5, 'Luar biasa! Ini pertama kali saya membeli di sini, dan saya sangat terkesan. Produk datang tepat waktu dan kualitasnya sangat bagus. Pasti akan belanja lagi!.', NULL);
+INSERT INTO `umpan_balik` VALUES (1, 'M. Ikbal', 'saul@gmail.com', 'testimonials-1.jpg', '2023-11-25', 'Produk A', 3, 'Saya sangat puas dengan produk yang saya beli. Kualitasnya luar biasa dan sesuai dengan deskripsi yang diberikan. Pengirimannya juga cepat dan kemasan sangat rapi. Terima kasih banyak, pasti akan membeli lagi!.', NULL);
+INSERT INTO `umpan_balik` VALUES (2, 'Nia', 'sara@gmail.com', 'testimonials-2.jpg', '2023-11-24', 'Produk B', 5, 'Produk yang saya beli sangat nyaman digunakan, dan hasilnya sesuai ekspektasi. Terima kasih atas layanan yang luar biasa. Saya pasti kembali untuk berbelanja lagi!.', NULL);
+INSERT INTO `umpan_balik` VALUES (3, 'Laela', 'jena@gmail.com', 'testimonials-3.jpg', '2023-11-26', 'Produk A', 5, 'Layanan yang luar biasa! Produk sangat bagus dan pengiriman tepat waktu. Saya akan terus berbelanja di sini karena kualitas dan pelayanan yang sangat memuaskan.', NULL);
+INSERT INTO `umpan_balik` VALUES (4, 'Zhafran', 'matt@gmail.com', 'testimonials-4.jpg', '2024-12-03', 'produk c', 5, 'Produk yang saya beli sangat memenuhi harapan! Kualitasnya sangat baik dan pengiriman sangat cepat. Saya pasti akan membeli lagi di sini.', NULL);
+INSERT INTO `umpan_balik` VALUES (5, 'Alzham', 'john@gmail.com', 'testimonials-5.jpg', '2024-12-01', 'produk C', 5, 'Luar biasa! Ini pertama kali saya membeli di sini, dan saya sangat terkesan. Produk datang tepat waktu dan kualitasnya sangat bagus. Pasti akan belanja lagi!.', NULL);
 
 -- ----------------------------
 -- Table structure for users

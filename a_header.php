@@ -2,15 +2,36 @@
 div.absolute {
     position: absolute;
     /* width: 100%; */
-    background: rgb(169, 169, 169);
+    /* background: rgb(237, 237, 237); */
     bottom: 0px;
-    left: 13px;
-    right: 13px;
+    padding: 5px;
+    left: 12px;
+    right: 12px;
 
     display: flex;
     justify-content: center;
     align-items: center;
-    /* border: 3px solid #8AC007; */
+    border-top: 1px solid rgb(0, 0, 0);
+    border-bottom: 1px solid rgb(250, 250, 250);
+    */
+}
+
+div.absolute-top {
+    position: absolute;
+    /* width: 100%; */
+    background: rgb(197, 229, 238);
+    top: 0px;
+    padding: 5px;
+    padding-top: 15px;
+    left: 12px;
+    right: 12px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    border-top: 1px solid rgb(250, 250, 250);
+    */
 }
     </style>
     <header id="header" class="header d-flex align-items-center fixed-top">
