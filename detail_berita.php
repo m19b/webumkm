@@ -45,28 +45,28 @@
 
     <main class="main">
         <br><br><br>
-        <!-- Page Title -->
-
 
         <!-- Starter Section Section -->
         <section id="berita" class="pricing section light-background">
+            <?php
+                    $idberita = $_GET['id'];
+                  $query = mysqli_query($kon, "SELECT *FROM berita WHERE id = '$idberita'");
+                  $tampung = mysqli_fetch_all($query,MYSQLI_ASSOC);
+                  foreach($tampung as $t3):
 
+                  
+                  ?>
             <div class="container">
                 <!-- Section Title -->
                 <div class="container section-title" data-aos="fade-up">
-                    <h2>Postingan Terbaru</h2>
-                    <p>Berita Terbaru Tentang UMKM Mataram - NTB</p>
+                    <h2><?=$t3['judul'];?></h2>
+                    <p>
+                    <p><?= $t3['created_at']?></p>
+                    </p>
                 </div><!-- End Section Title -->
                 <div class="row gy-4">
-                    <?php
-                  $query = mysqli_query($kon, "SELECT SUBSTRING(konten, 1, 100) konten, penulis, judul, kategori, gambar, id,created_at FROM berita ORDER BY created_at DESC LIMIT 3");
 
-                  $tampung = mysqli_fetch_all($query,MYSQLI_ASSOC);
-                  foreach($tampung as $t3):
-   $tgl = date_create($t3['created_at']);
-                  
-                  ?>
-                    <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="col-lg-12" data-aos="zoom-in" data-aos-delay="100">
                         <div class="pricing-item">
                             <article>
 
@@ -77,29 +77,17 @@
                                 <p class="post-category"><?=$t3['kategori'];?></p>
 
                                 <h2 class="title">
-                                    <a href="detail_berita.php?id=<?=$t3['id'];?>"><?=$t3['judul'];?></a>
+                                    <a href="blog-details.php?id=<?=$t3['id'];?>"><?=$t3['judul'];?></a>
                                 </h2>
 
                                 <div class="d-flex align-items-center">
                                     <img src="assets/img/blog/<?=$t3['penulis']?>.jpg" alt=""
                                         class="img-fluid post-author-img flex-shrink-0">
                                     <div class="post-meta">
-                                        <p class="post-author"><?=$t3['konten']?>... <a
-                                                href="detail_berita.php?id=<?=$t3['id'];?>">Selengkapnya</a></p>
+                                        <p class="post-author"><?=$t3['konten']?></p>
+                                        <p class="post-author"><?=$t3['penulis']?></p>
                                         <p class=" post-date">
-                                        <div class="absolute">
-
-
-                                            <div class="btn-group" role="group" aria-label="Basic example">
-                                                <button type="button" class="btn btn-success"
-                                                    disabled><?=date_format($tgl, "d M Y")?></button>
-                                                <button type="button"
-                                                    class="btn btn-secondary"><?=$t3['penulis'];?></button>
-                                                <button type="button"
-                                                    class="btn btn-secondary"><?=$t3['kategori'];?></button>
-                                            </div>
-                                            <!-- echo date_format($date,"Y/m/d H:i:s"); -->
-                                        </div>
+                                        <p><?= $t3['created_at']?></p>
                                         </p>
                                     </div>
                                 </div>

@@ -29,6 +29,21 @@
 
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet">
+    <style>
+    div.absolute {
+        position: absolute;
+        /* width: 100%; */
+        background: rgb(169, 169, 169);
+        bottom: 0px;
+        left: 13px;
+        right: 13px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* border: 3px solid #8AC007; */
+    }
+    </style>
 
     <!-- =======================================================
   * Template Name: Arsha
@@ -305,14 +320,16 @@
                             ?>
 
                         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-<?=$tampil5['kategori']?>">
-                            <img src="Admin/isi/images/galeri/<?=$tampil5['gambar']?>" class="img-fluid" alt="">
+                            <img src="Admin/isi/images/galeri/<?=$tampil5['gambar']?>" class="img-fluid" alt=""
+                                style="float:right;width:600px;height:250px;">
                             <div class="portfolio-info">
                                 <h4><?=$tampil5['judul']?></h4>
                                 <p><?=$tampil5['deskripsi']?></p>
 
                                 <a href="Admin/isi/images/galeri/<?=$tampil5['gambar']?>"
-                                    title="<?=$tampil5['judul'] ?>" data-gallery="portfolio-gallery-app"
-                                    class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                    title="<h4><?=$tampil5['judul'] ?> </h4> <?=$tampil5['deskripsi']?>"
+                                    data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
+                                        class="bi bi-zoom-in"></i></a>
                                 <!-- <a href="portfolio-details.html" title="More Details" class="details-link"><i
                                         class="bi bi-link-45deg"></i></a> -->
                             </div>
@@ -342,7 +359,7 @@
 
                 <div class="row gy-4">
                     <?php
-                    $query = mysqli_query($kon, "SELECT *FROM produk WHERE status = 'aktif'");
+                    $query = mysqli_query($kon, "SELECT *FROM produk WHERE status = 'aktif' ORDER BY id Desc LIMIT 3");
                     $tampung = mysqli_fetch_all($query, MYSQLI_ASSOC);
                     foreach($tampung as $tampil7):
                         ?>
@@ -355,17 +372,18 @@
                             <ul>
 
 
-                                <li><i class="bi bi-check"></i>
-                                    <span><?=$tampil7['deskripsi']?></span>
-                                </li>
-                                <li><i class="bi bi-check"></i> <span>Kategori :
+
+                                <li><i class="-bi bi-check"></i> <span>Kategori :
                                         <?=$tampil7['kategori']?></span></li>
 
-                                <div class="pic"><img src="Admin/isi/images/produk/<?=$tampil7['gambar']?>"
-                                        class="img-fluid" alt=""></div>
+                                <div class="pic"><img src="Admin/isi/images/produk/<?=$tampil7['gambar']?>" heig
+                                        class="img-fluid" alt="" style="float:right;width:600px;height:250px;"></div>
+                                <span><?=$tampil7['deskripsi']?></span>
 
                             </ul>
-                            <a href="#" class="buy-btn">Buy Now</a>
+                            <div class="absolute">
+                                <a href="#" class="buy-btn">Beli Sekarang</a> <a href="#" class="buy-btn">Keranjang</a>
+                            </div>
                         </div>
                     </div><!-- End Pricing Item -->
                     <?php endforeach; ?>
@@ -453,9 +471,10 @@
                     </div><!-- End Section Title -->
                     <div class="row gy-4">
                         <?php
-                  $query = mysqli_query($kon, "SELECT *FROM berita ORDER BY created_at DESC LIMIT 3");
+                  $query = mysqli_query($kon, "SELECT SUBSTRING(konten, 1, 100) konten, penulis, judul, kategori, gambar, id,created_at FROM berita ORDER BY created_at DESC LIMIT 3");
                   $tampung = mysqli_fetch_all($query,MYSQLI_ASSOC);
                   foreach($tampung as $t3):
+                    $tgl = date_create($t3['created_at']);
 
                   
                   ?>
@@ -468,20 +487,31 @@
                                             class="img-fluid">
                                     </div>
 
-                                    <p class="post-category"><?=$t3['kategori'];?></p>
 
-                                    <h2 class="title">
-                                        <a href="blog-details.php?id=<?=$t3['id'];?>"><?=$t3['judul'];?></a>
-                                    </h2>
+
+                                    <a href="detail_berita.php?id=<?=$t3['id'];?>"><?=$t3['judul'];?></a>
+
 
                                     <div class="d-flex align-items-center">
                                         <img src="assets/img/blog/<?=$t3['penulis']?>.jpg" alt=""
                                             class="img-fluid post-author-img flex-shrink-0">
                                         <div class="post-meta">
-                                            <p class="post-author"><?=$t3['konten']?></p>
-                                            <p class="post-author"><?=$t3['penulis']?></p>
+                                            <p class="post-author"><?=$t3['konten']?>... <a
+                                                    href="detail_berita.php?id=<?=$t3['id'];?>">Selengkapnya</a></p>
                                             <p class=" post-date">
-                                            <p><?= $t3['created_at']?></p>
+                                            <div class="absolute">
+
+
+                                                <div class="btn-group" role="group" aria-label="Basic example">
+                                                    <button type="button" class="btn btn-success"
+                                                        disabled><?=date_format($tgl, "d M Y")?></button>
+                                                    <button type="button"
+                                                        class="btn btn-secondary"><?=$t3['penulis'];?></button>
+                                                    <button type="button"
+                                                        class="btn btn-secondary"><?=$t3['kategori'];?></button>
+                                                </div>
+                                                <!-- echo date_format($date,"Y/m/d H:i:s"); -->
+                                            </div>
                                             </p>
                                         </div>
                                     </div>
@@ -496,7 +526,7 @@
                     </div>
                     <div class="col-md-12 text-center">
                         <br>
-                        <a href="berita.php" class="buy-btn">Selengkapnya</a>
+                        <a href="berita.php" class="buy-btn">Semua Berita</a>
 
 
                     </div>
