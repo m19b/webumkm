@@ -66,99 +66,59 @@
 
                 <div class="row gy-4">
 
+
+
                     <div class="col-lg-8">
-                        <?php
-                    $idberita = $_GET['id'];
-                  $query = mysqli_query($kon, "SELECT *FROM berita WHERE id = '$idberita'");
-                  $tampung = mysqli_fetch_all($query,MYSQLI_ASSOC);
-                  foreach($tampung as $t3):
-   $tgl = date_create($t3['created_at']);
-
-                  
-                  ?>
-                        <div class="container section-title" data-aos="fade-up">
-                            <h2><?=$t3['judul'];?></h2>
-                            <p>
-                            <p><button type="button" class="btn btn-success" disabled><i class="bi bi-calendar3"></i>
-                                    <?=date_format($tgl, "d M Y  H:i:s")?></button>
-                            </p>
-
-                            </p>
-                        </div><!-- End Section Title -->
-                        <article>
-
-                            <div class="text-center">
-                                <img src="Admin/isi/images/berita/<?=$t3['gambar']; ?>" alt="" class="img-fluid"
-                                    alt="Responsive image" style="float:top;width:600px;height:250px;">
-                            </div>
-                            <br>
+                        <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
+                            <h3>Kategori</h3>
+                            <div class="form-group row">
+                                <div class="col-sm-2"><img src="Admin/isi/images/team/ikbal.jpg" class="img-fluid"
+                                        alt="" style="float:left;width:50px;height:50px;">
+                                </div>
 
 
+                                <label for="staticEmail" class="col-sm-6 col-form-label">Usaha</label>
 
+                                <div class="col-sm-1">
+                                    <input type="text" class="form-control-plaintext" id="staticEmail" value="1">
 
-                            <div class="d-flex align-items-center">
-                                <img src="assets/img/blog/<?=$t3['penulis']?>.jpg" alt=""
-                                    class="img-fluid post-author-img flex-shrink-0">
-                                <div class="post-meta">
+                                </div>
 
-                                    <p class="text-justify post-author"><?=$t3['konten']?></p>
+                                <div class="col-sm-1">
+                                    <input type="text" class="form-control-plaintext" id="staticEmail" value=" Buah">
+                                </div>
 
-                                    <p class=" post-date">
+                                <div class="col-sm-2 btn-group btn-sm" role="group" aria-label="Basic example">
+                                    <a href="keranjang.php" type="button" class="btn btn-info">
+                                        <i class="bi bi-pencil-square"></i> </a>
+                                    <a href="keranjang.php" type="button" class="btn btn-danger btn-sm">
+                                        <i class="bi bi-trash"></i></a>
 
-                                    </p>
                                 </div>
                             </div>
-                            <div>
 
+                        </div>
+                        <br>
 
-
-                                <button type="button" class="btn btn-info"><i class="bi bi-person-check"></i>
-                                    <?=$t3['penulis'];?></button> &nbsp
-                                &nbsp
-                                <button type="button" class="btn btn-info"><i class="bi bi-bookmarks"></i>
-                                    <?=$t3['kategori'];?></button>
-
-
-                                <!-- echo date_format($date,"Y/m/d H:i:s"); -->
-                            </div>
-                        </article>
-
-                    </div><!-- End post list item -->
-
-
-                    <?php endforeach; ?>
-
-
-
+                    </div>
 
                     <div class="col-lg-4">
                         <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
                             <h3>Kategori</h3>
-                            <ul>
-                                <?php
-                              $query = mysqli_query($kon,"select kategori from berita group by kategori;");
-                              $tampung = mysqli_fetch_all($query,MYSQLI_ASSOC);
-                              foreach($tampung as $tampil):
-                              ?>
-                                <li><a href="#"><strong><?=$tampil['kategori']?></strong></a></li>
-                                <?php endforeach; ?>
-                            </ul>
+                            <div class="form-group row">
+                                <label for="staticEmail" class="col-sm-4 col-form-label">Usaha</label>
+                                <div class="col-sm-6">
+                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail"
+                                        value="produk">
+                                </div>
+                            </div>
+
                         </div>
                         <br>
-                        <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
-                            <h3>Tag</h3>
-                            <ul>
-                                <?php
-                              $query = mysqli_query($kon,"select kategori from berita group by kategori;");
-                              $tampung = mysqli_fetch_all($query,MYSQLI_ASSOC);
-                              foreach($tampung as $tampil):
-                              ?>
-                                <li><a href="#"><strong><?=$tampil['kategori']?></strong></a></li>
-                                <?php endforeach; ?>
-                            </ul>
-                        </div>
 
                     </div>
+
+
 
 
                 </div>

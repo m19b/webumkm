@@ -12,12 +12,20 @@
              Designed by <a href="#">Kelompok 7</a>
          </div>
      </div>
+
      <div class="fixed-bottom">
          <div class="btn-group btn-sm" role="group" aria-label="Basic example">
-             <button type="button" class="btn btn-success btn-sm"><i class="bi bi-cart4"></i>
-                 Produk</button>
-             <button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-bookmarks"></i>
-                 Berita</button>
+             <a href="produk.php" type="button" class="btn btn-success btn-sm"><i class="bi bi-shop"></i>
+                 Produk</a>
+
+             <a href="berita.php" type="button" class="btn btn-secondary btn-sm"><i class="bi bi-bookmarks"></i>
+                 Berita</a>
+
+             <a href="keranjang.php" type="button" class="btn btn-info">
+                 <i class="bi bi-cart4"></i> <span class="badge badge-light">9</span>
+
+             </a>
+
          </div>
      </div>
  </footer>
