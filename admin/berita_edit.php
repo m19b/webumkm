@@ -21,6 +21,20 @@
 
                     <div class="clearfix"></div>
                 </div>
+
+                <?php
+
+                                 
+
+                      $idberita=$_GET['id'];
+                      $query = mysqli_query($kon, "select *from berita where id='$idberita' LIMIT 1");
+                   
+                       $ed = mysqli_fetch_array ($query,MYSQLI_ASSOC)
+                       
+
+
+                ?>
+
                 <form method="POST" action="" enctype="multipart/form-data" name="fberita" id="demo-form2"
                     data-parsley-validate class="form-horizontal form-label-left">
                     <div class="x_content">
@@ -32,8 +46,8 @@
                                     class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" id="first-name" required="required" name="judul"
-                                    class="form-control col-md-7 col-xs-12">
+                                <input VALUE="<?=$ed['judul'] ?>" type="text" id="first-name" required="required"
+                                    name="judul" class="form-control col-md-7 col-xs-12">
                             </div>
                         </div>
 
@@ -44,8 +58,11 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Pilih Gambar <span
                                     class="required">*</span>
                             </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
                                 <input class="form-control" type="file" id="formFile" name="gambar">
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                <img height="70" width="100%" src="isi/images/berita/<?=$ed['gambar']?>" alt="">
                             </div>
                         </div>
 
@@ -57,15 +74,19 @@
 
                                 <select id="heard" class="form-control" required name="kategori">
                                     <option selected disabled>-Pilih Kategori-</option>
+
+
+
+
                                     <?php 
                                        
                                            $query = mysqli_query($kon, "Select *from kategori");
-                                           while($data = mysqli_fetch_array ($query)){ ?>
+                                           while($data = mysqli_fetch_array ($query)){
+                                            $pilih=($data['id'] == $ed['kategori_id'])?"Selected" :"";
+                                            echo "<option value='$data[id]' $pilih>$data[nama] </option>";
+                                        
+                                        }?>
 
-                                    <option value="<?=$data['id']?>"><?=$data['nama']?>
-                                    </option>
-
-                                    <?php } ?>
                                 </select>
 
 
@@ -79,9 +100,10 @@
                                 <p>
 
                                     <input type="radio" class="flat" name="statusp" id="genderM" value="draft"
-                                        checked="" required />
+                                        <?php if($ed['statusp']=="draft"){echo "checked";} ?> />
                                     Draft
-                                    <input type="radio" class="flat" name="statusp" id="genderF" value="publikasi" />
+                                    <input type="radio" class="flat" name="statusp" id="genderF" value="publikasi"
+                                        <?php if($ed['statusp']=="publikasi"){echo "checked";} ?> />
                                     Publikasi
                                 </p>
                             </div>
@@ -173,9 +195,10 @@
                         </div>
 
 
-                        <div id="editor-one" class="editor-wrapper"></div>
+                        <div id="editor-one" class="editor-wrapper"><?=$ed['konten'] ?></div>
 
                         <input type="hidden" name="isiberita" id="inputHidden" value="">
+
 
                         <br />
 
@@ -204,40 +227,80 @@
 
 
                 <?php
+           
                         if(isset($_POST['simpanberita'])){
+
+
                           
 
                         $judul = $_POST['judul'];
                         $konten = $_POST['isiberita'];
                         $penulis = $_SESSION['iduser'];
                       
-                        $gambar=$judul.$_FILES['gambar']['name'];
+                        $gambar=$_FILES['gambar']['name'];
                         $temp = $_FILES['gambar']['tmp_name'];
 
                         $kategori = $_POST['kategori'];
                         $statusp = $_POST['statusp'];
+                        $idberitaa = $_GET['id'];
 
 
+// echo  $judul . "<br/>";
+// echo  $konten . "<br/>";
+// echo  $penulis . "<br/>";
+// echo  $gambar . "<br/>";
+// echo  $temp . "<br/>";
+// echo  $kategori . "<br/>";
+// echo  $statusp . "<br/>";
+// echo  $idberitaa . "<br/>";
+//   $nmfile = $ed['gambar'];
+//                             $lokasi = "isi/images/berita/$nmfile";
+//                             echo $lokasi;
+//                             exit;
 
-
-
-                      
-                        $query2 = mysqli_query($kon, "INSERT INTO berita (judul, konten, user_id,gambar,kategori_id, statusp)VALUES 
-                                                                            ('$judul','$konten','$penulis','$gambar','$kategori','$statusp') ");
-                        move_uploaded_file($temp,"isi/images/berita/$gambar");
-                        if($query2){
-                          
-                           echo "<script>alert('Data berhasil disimpan!'); window.location.href='?page=berita';</script>";
-
-
-                        }else{
-                          echo "data Gagal berhasil di simpan";
                         
-                        }
+                        if(!$_FILES['gambar']['size'] == 0) {
+                            $nmfile = $ed['gambar'];
+                            $lokasi = "isi/images/berita/$nmfile";
+                            unlink("$lokasi");
+
+                            // Query SQL dengan placeholder
+                            $query2 = $kon->prepare("UPDATE berita SET judul = ?, konten = ?, user_id = ?, kategori_id = ?, statusp
+                            = ?, gambar = ? WHERE id = ?");
+
+                            // Binding parameter. "ssssssi" berarti 6 string dan 1 integer
+                            $query2->bind_param("ssssssi", $judul, $konten, $penulis, $kategori, $statusp, $gambar, $idberitaa);
+
+                            move_uploaded_file($temp,"isi/images/berita/$gambar");
+                            }else{
+                                                       // Query SQL dengan placeholder
+                            $query2 = $kon->prepare("UPDATE berita SET judul = ?, konten = ?, user_id = ?, kategori_id = ?, statusp
+                            = ? WHERE id = ?");
+
+                            // Binding parameter. "ssssssi" berarti 6 string dan 1 integer
+                            $query2->bind_param("sssssi", $judul, $konten, $penulis, $kategori, $statusp, $idberitaa);
+
+                         
+                            };
 
 
-                        }
-                        ?>
+
+                // Eksekusi query
+                if ($query2->execute()) {
+                echo "<script>
+                alert('Data berhasil disimpan!');
+                window.location.href = '?page=berita';
+                </script>";
+                } else {
+                echo "Error: " . $query2->error; // Tampilkan pesan error untuk debugging
+                }
+
+                $query2->close();
+
+                }
+
+
+                ?>
 
 
             </div>

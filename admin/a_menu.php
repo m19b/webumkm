@@ -28,7 +28,7 @@
 
                     <li><a href="?page=<?=$tampil['link']; ?>"><i class="<?php echo $tampil['ikon']; ?>"></i>
                             <?=$tampil['nama']; ?> <span
-                                class="fa fa-<?=($_GET['page'] <> $tampil['link']) ? "" : "play" ?> "></span></span>
+                                class="fa fa-<?=($_GET['page'] <> $tampil['link']) ? "" : "play" ?><?=($_GET['page'] <> $tampil['link']."_tampil") ? "" : "play" ?><?=($_GET['page'] <> $tampil['link']."_edit") ? "" : "play" ?><?=($_GET['page'] <> $tampil['link']."_add") ? "" : "play" ?> "></span>
                         </a> </li>
 
                     <?php endforeach; ?>

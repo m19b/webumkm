@@ -68,66 +68,7 @@
                 </div>
             </div>
 
-        </section><!-- /Hero Section -->
-
-        <!-- Clients Section -->
-        <!-- <section id="clients" class="clients section light-background">
-
-      <div class="container" data-aos="zoom-in">
-
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 2,
-                  "spaceBetween": 40
-                },
-                "480": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 60
-                },
-                "640": {
-                  "slidesPerView": 4,
-                  "spaceBetween": 80
-                },
-                "992": {
-                  "slidesPerView": 5,
-                  "spaceBetween": 120
-                },
-                "1200": {
-                  "slidesPerView": 6,
-                  "spaceBetween": 120
-                }
-              }
-            }
-          </script>
-          <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-2.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-3.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-4.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-5.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-6.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-7.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid" alt=""></div>
-          </div>
-        </div>
-
-      </div>
-
-    </section>/Clients Section -->
+        </section>
 
         <section id="about" class="about section light-background">
 
@@ -343,21 +284,21 @@
                 <div class="row gy-4">
                     <?php
                     $query = mysqli_query($kon, "SELECT
-	pengusaha.nama_usaha,
-	pengusaha.jenis_umkm,
-	produk.id,
-	produk.nama_produk,
-	produk.deskripsi,
-	produk.harga,
-	produk.satuan,
-	produk.stok,
-	produk.kategori,
-	produk.gambar,
-	users.nama_lengkap 
-FROM
-	produk
-	INNER JOIN pengusaha ON produk.pengusaha_id = pengusaha.id
-	INNER JOIN users ON pengusaha.user_id = users.id where produk.status = 'aktif' ORDER BY id Desc LIMIT 3");
+                                pengusaha.nama_usaha,
+                                pengusaha.jenis_umkm,
+                                produk.id,
+                                produk.nama_produk,
+                                produk.deskripsi,
+                                produk.harga,
+                                produk.satuan,
+                                produk.stok,
+                                produk.kategori,
+                                produk.gambar,
+                                users.nama_lengkap 
+                            FROM
+                                produk
+                                INNER JOIN pengusaha ON produk.pengusaha_id = pengusaha.id
+                                INNER JOIN users ON pengusaha.user_id = users.id where produk.status = 'aktif' ORDER BY id Desc LIMIT 3");
                     $tampung = mysqli_fetch_all($query, MYSQLI_ASSOC);
                     foreach($tampung as $tampil7):
                         ?>
@@ -451,284 +392,301 @@ FROM
 
         <!-- Pricing Section -->
 
-        < <!-- Testimonials Section -->
-            <section id="umpan" class="umpan section">
-                <section id="testimonials" class="testimonials section">
+        <!-- Testimonials Section -->
+        <section id="umpan" class="umpan section">
+            <section id="testimonials" class="testimonials section">
 
-                    <!-- Section Title -->
-                    <div class="container section-title" data-aos="fade-up">
-                        <h2>Umpan Balik Pelanggan</h2>
-                        <p></p>
-                    </div><!-- End Section Title -->
+                <!-- Section Title -->
+                <div class="container section-title" data-aos="fade-up">
+                    <h2>Umpan Balik Pelanggan</h2>
+                    <p></p>
+                </div><!-- End Section Title -->
 
-                    <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-                        <div class="swiper init-swiper">
-                            <script type="application/json" class="swiper-config">
-                            {
-                                "loop": true,
-                                "speed": 600,
-                                "autoplay": {
-                                    "delay": 5000
-                                },
-                                "slidesPerView": "auto",
-                                "pagination": {
-                                    "el": ".swiper-pagination",
-                                    "type": "bullets",
-                                    "clickable": true
-                                }
+                    <div class="swiper init-swiper">
+                        <script type="application/json" class="swiper-config">
+                        {
+                            "loop": true,
+                            "speed": 600,
+                            "autoplay": {
+                                "delay": 5000
+                            },
+                            "slidesPerView": "auto",
+                            "pagination": {
+                                "el": ".swiper-pagination",
+                                "type": "bullets",
+                                "clickable": true
                             }
-                            </script>
-                            <div class="swiper-wrapper">
-                                <?php 
+                        }
+                        </script>
+                        <div class="swiper-wrapper">
+                            <?php 
                                 $query = mysqli_query($kon,"SELECT *FROM umpan_balik");
                                 $tampung = mysqli_fetch_all($query, MYSQLI_ASSOC);
                                 foreach ($tampung as $t1):
                                     $no = $t1['rating'];
                                     ?>
-                                <div class="swiper-slide">
-                                    <div class="testimonial-item">
-                                        <img src="Admin/isi/images/testimonials/<?=$t1['foto']?>"
-                                            class="testimonial-img" alt="">
-                                        <h3><?=$t1['nama']?></h3>
-                                        <h4></h4>
-                                        <div class="stars">
-                                            <?php    for ($i = 1; $i <= $no; $i++) { ?>
-                                            <i class="bi bi-star-fill"></i>
-                                            <?php } ?>
-                                        </div>
-                                        <p>
-                                            <i class="bi bi-quote quote-icon-left"></i>
-                                            <span><?=$t1['komentar']?></span>
-                                            <i class="bi bi-quote quote-icon-right"></i>
-                                        </p>
-                                        <p>Tgl : <?=$t1['tanggal_umpan_balik']?> | Produk : <?=$t1['produk_layanan']?>
-                                        </p>
+                            <div class="swiper-slide">
+                                <div class="testimonial-item">
+                                    <img src="Admin/isi/images/testimonials/<?=$t1['foto']?>" class="testimonial-img"
+                                        alt="">
+                                    <h3><?=$t1['nama']?></h3>
+                                    <h4></h4>
+                                    <div class="stars">
+                                        <?php    for ($i = 1; $i <= $no; $i++) { ?>
+                                        <i class="bi bi-star-fill"></i>
+                                        <?php } ?>
                                     </div>
-                                </div><!-- End testimonial item -->
-                                <?php endforeach; ?>
-                            </div>
-                            <div class="swiper-pagination"></div>
+                                    <p>
+                                        <i class="bi bi-quote quote-icon-left"></i>
+                                        <span><?=$t1['komentar']?></span>
+                                        <i class="bi bi-quote quote-icon-right"></i>
+                                    </p>
+                                    <p>Tgl : <?=$t1['tanggal_umpan_balik']?> | Produk : <?=$t1['produk_layanan']?>
+                                    </p>
+                                </div>
+                            </div><!-- End testimonial item -->
+                            <?php endforeach; ?>
                         </div>
-
+                        <div class="swiper-pagination"></div>
                     </div>
 
-                </section><!-- /Testimonials Section -->
+                </div>
 
-            </section><!-- /Why Us Section -->
+            </section><!-- /Testimonials Section -->
+
+        </section><!-- /Why Us Section -->
 
 
 
 
-            <section id="berita" class="pricing section light-background">
+        <section id="berita" class="pricing section light-background">
 
-                <div class="container">
-                    <!-- Section Title -->
-                    <div class="container section-title" data-aos="fade-up">
-                        <h2>Postingan Terbaru</h2>
-                        <p>Berita Terbaru Tentang UMKM Mataram - NTB</p>
-                    </div><!-- End Section Title -->
-                    <div class="row gy-4">
-                        <?php
-                  $query = mysqli_query($kon, "SELECT SUBSTRING(konten, 1, 100) konten, penulis, judul, kategori, gambar, id,created_at FROM berita ORDER BY created_at DESC LIMIT 3");
+            <div class="container">
+                <!-- Section Title -->
+                <div class="container section-title" data-aos="fade-up">
+                    <h2>Postingan Terbaru</h2>
+                    <p>Berita Terbaru Tentang UMKM Mataram - NTB</p>
+                </div><!-- End Section Title -->
+                <div class="row gy-4">
+                    <?php
+                  $query = mysqli_query($kon, "SELECT
+	berita.id, 
+    berita.judul, 
+		SUBSTRING(konten, 1, 100) konten,
+	users.nama_lengkap, 
+	kategori.nama penulis, 
+	berita.statusp, 
+	berita.gambar,
+	kategori.nama kategori,
+	berita.created_at
+FROM
+	berita
+	INNER JOIN
+	users
+	ON 
+		berita.user_id = users.id
+	INNER JOIN
+	kategori
+	ON 
+		berita.kategori_id = kategori.id ORDER BY berita.created_at DESC LIMIT 3;");
                   $tampung = mysqli_fetch_all($query,MYSQLI_ASSOC);
                   foreach($tampung as $t3):
                     $tgl = date_create($t3['created_at']);
 
                   
                   ?>
-                        <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="pricing-item">
-                                <article>
+                    <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="pricing-item">
+                            <article>
 
-                                    <div class="post-img">
+                                <div class="post-img">
 
-                                        <img src="Admin/isi/images/berita/<?=$t3['gambar']; ?>" alt="" class="img-fluid"
-                                            style="float:right;width:400px;height:200px;">
-                                    </div>
-
-
-                                    <h2 class="title">
-                                        <a href="detail_berita.php?id=<?=$t3['id'];?>"><?=$t3['judul'];?></a>
-                                    </h2>
-
-                                    <div class="d-flex align-items-center">
-                                        <div class="post-meta">
-                                            <p class="post-author"><?=$t3['konten']?>... <a
-                                                    href="detail_berita.php?id=<?=$t3['id'];?>">Selengkapnya</a></p>
-                                            <p class=" post-date">
-                                            <div class="absolute">
+                                    <img src="Admin/isi/images/berita/<?=$t3['gambar']; ?>" alt="" class="img-fluid"
+                                        style="float:right;width:400px;height:200px;">
+                                </div>
 
 
-                                                <div class="btn-group btn-sm" role="group" aria-label="Basic example">
-                                                    <button type="button" class="btn btn-success btn-sm" disabled><i
-                                                            class="bi bi-calendar3"></i>
-                                                        <?=date_format($tgl, "d M Y")?></button>
-                                                    <button type="button" class="btn btn-secondary btn-sm"><i
-                                                            class="bi bi-person-check"></i>
-                                                        <?=$t3['penulis'];?></button>
-                                                    <button type="button" class="btn btn-info btn-sm"><i
-                                                            class="bi bi-bookmarks"></i> <?=$t3['kategori'];?></button>
-                                                </div>
-                                                <!-- echo date_format($date,"Y/m/d H:i:s"); -->
+                                <h2 class="title">
+                                    <a href="detail_berita.php?id=<?=$t3['id'];?>"><?=$t3['judul'];?></a>
+                                </h2>
+
+                                <div class="d-flex align-items-center">
+                                    <div class="post-meta">
+                                        <p class="post-author"><?=$t3['konten']?>... <a
+                                                href="detail_berita.php?id=<?=$t3['id'];?>">Selengkapnya</a></p>
+                                        <p class=" post-date">
+                                        <div class="absolute">
+
+
+                                            <div class="btn-group btn-sm" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-success btn-sm" disabled><i
+                                                        class="bi bi-calendar3"></i>
+                                                    <?=date_format($tgl, "d M Y")?></button>
+                                                <button type="button" class="btn btn-secondary btn-sm"><i
+                                                        class="bi bi-person-check"></i>
+                                                    <?=$t3['penulis'];?></button>
+                                                <button type="button" class="btn btn-info btn-sm"><i
+                                                        class="bi bi-bookmarks"></i> <?=$t3['kategori'];?></button>
                                             </div>
-                                            </p>
+                                            <!-- echo date_format($date,"Y/m/d H:i:s"); -->
                                         </div>
+                                        </p>
                                     </div>
+                                </div>
 
-                                </article>
-                            </div><!-- End post list item -->
+                            </article>
                         </div><!-- End post list item -->
+                    </div><!-- End post list item -->
 
-                        <?php endforeach; ?>
-
-
-                    </div>
-                    <div class="col-md-12 text-center">
-                        <br>
-                        <a href="berita.php" class="btn btn-dark btn-lg"><i class="bi bi-journals"></i> Semua
-                            Berita</a>
+                    <?php endforeach; ?>
 
 
-                    </div>
                 </div>
+                <div class="col-md-12 text-center">
+                    <br>
+                    <a href="berita.php" class="btn btn-dark btn-lg"><i class="bi bi-journals"></i> Semua
+                        Berita</a>
 
-            </section><!-- /Blog Posts Section -->
 
-            <section id="why-us" class="section why-us light-background" data-builder="section">
+                </div>
+            </div>
 
-                <div class="container-fluid">
+        </section><!-- /Blog Posts Section -->
 
-                    <div class="row gy-4">
+        <section id="why-us" class="section why-us light-background" data-builder="section">
 
-                        <div class="col-lg-7 d-flex flex-column justify-content-center order-2 order-lg-1">
+            <div class="container-fluid">
 
-                            <div class="content px-xl-5" data-aos="fade-up" data-aos-delay="100">
-                                <h3><span>Pertanyaan yang Sering Diajukan</strong></h3>
+                <div class="row gy-4">
 
-                            </div>
+                    <div class="col-lg-7 d-flex flex-column justify-content-center order-2 order-lg-1">
 
-                            <div class="faq-container px-xl-5" data-aos="fade-up" data-aos-delay="200">
-                                <?php 
+                        <div class="content px-xl-5" data-aos="fade-up" data-aos-delay="100">
+                            <h3><span>Pertanyaan yang Sering Diajukan</strong></h3>
+
+                        </div>
+
+                        <div class="faq-container px-xl-5" data-aos="fade-up" data-aos-delay="200">
+                            <?php 
                                     $query = mysqli_query($kon,"SELECT *FROM faq");
                                     $tampung = mysqli_fetch_all($query, MYSQLI_ASSOC);
                                     foreach ($tampung as $nmr => $t2):
                                         ?>
-                                <div class="faq-item faq-active">
+                            <div class="faq-item faq-active">
 
-                                    <h3><span><?=$nmr+1?>.</span> <?=$t2['pertanyaan']?></h3>
-                                    <div class="faq-content">
-                                        <p><?=$t2['jawaban']?></p>
-                                    </div>
-                                    <i class="faq-toggle bi bi-chevron-right"></i>
-                                </div><!-- End Faq item-->
-                                <?php endforeach; ?>
-                            </div>
-
-                        </div>
-
-                        <div class="col-lg-5 order-1 order-lg-2 why-us-img">
-                            <img src="assets/img/why-us.png" class="img-fluid" alt="" data-aos="zoom-in"
-                                data-aos-delay="100">
-                        </div>
-                    </div>
-
-                </div>
-
-            </section><!-- /Why Us Section -->
-            <!-- Contact Section -->
-            <section id="contact" class="contact section">
-
-                <!-- Section Title -->
-                <div class="container section-title" data-aos="fade-up">
-                    <h2>HUBUNGI KAMI</h2>
-                    <p>Kami siap membantu Anda! Jika Anda memiliki pertanyaan atau membutuhkan bantuan, jangan ragu
-                        untuk
-                        menghubungi kami melalui salah satu cara di bawah ini.</p>
-                </div><!-- End Section Title -->
-
-                <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-                    <div class="row gy-4">
-
-                        <div class="col-lg-5">
-
-                            <div class="info-wrap">
-                                <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-                                    <i class="bi bi-geo-alt flex-shrink-0"></i>
-                                    <div>
-                                        <h3>Address</h3>
-                                        <p>M. Ikbal, Lombok-NTB</p>
-                                    </div>
-                                </div><!-- End Info Item -->
-
-                                <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-                                    <i class="bi bi-telephone flex-shrink-0"></i>
-                                    <div>
-                                        <h3>Hubungi kami</h3>
-                                        <p>+6281234567890</p>
-                                    </div>
-                                </div><!-- End Info Item -->
-
-                                <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                                    <i class="bi bi-envelope flex-shrink-0"></i>
-                                    <div>
-                                        <h3>Email kami</h3>
-                                        <p>umkmdesakami@gmail.com</p>
-                                    </div>
-                                </div><!-- End Info Item -->
-
-                                <iframe src="" frameborder="0" style="border:0; width: 100%; height: 270px;"
-                                    allowfullscreen="" loading="lazy"
-                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-7">
-                            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up"
-                                data-aos-delay="200">
-                                <div class="row gy-4">
-
-                                    <div class="col-md-6">
-                                        <label for="name-field" class="pb-2">Nama anda</label>
-                                        <input type="text" name="name" id="name-field" class="form-control" required="">
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <label for="email-field" class="pb-2">Email anda</label>
-                                        <input type="email" class="form-control" name="email" id="email-field"
-                                            required="">
-                                    </div>
-
-                                    <div class="col-md-12">
-                                        <label for="subject-field" class="pb-2"></label>
-                                        <input type="text" class="form-control" name="subject" id="subject-field"
-                                            required="">
-                                    </div>
-
-                                    <div class="col-md-12">
-                                        <label for="message-field" class="pb-2">Pesan</label>
-                                        <textarea class="form-control" name="message" rows="10" id="message-field"
-                                            required=""></textarea>
-                                    </div>
-
-                                    <div class="col-md-12 text-center">
-                                        <div class="loading">Loading</div>
-                                        <div class="error-message"></div>
-                                        <div class="sent-message">Pesan Anda telah terkirim. Terima kasih!</div>
-
-                                        <button type="submit">Kirim pesan</button>
-                                    </div>
-
+                                <h3><span><?=$nmr+1?>.</span> <?=$t2['pertanyaan']?></h3>
+                                <div class="faq-content">
+                                    <p><?=$t2['jawaban']?></p>
                                 </div>
-                            </form>
-                        </div><!-- End Contact Form -->
+                                <i class="faq-toggle bi bi-chevron-right"></i>
+                            </div><!-- End Faq item-->
+                            <?php endforeach; ?>
+                        </div>
 
                     </div>
 
+                    <div class="col-lg-5 order-1 order-lg-2 why-us-img">
+                        <img src="assets/img/why-us.png" class="img-fluid" alt="" data-aos="zoom-in"
+                            data-aos-delay="100">
+                    </div>
                 </div>
 
-            </section><!-- /Contact Section -->
+            </div>
+
+        </section><!-- /Why Us Section -->
+        <!-- Contact Section -->
+        <section id="contact" class="contact section">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>HUBUNGI KAMI</h2>
+                <p>Kami siap membantu Anda! Jika Anda memiliki pertanyaan atau membutuhkan bantuan, jangan ragu
+                    untuk
+                    menghubungi kami melalui salah satu cara di bawah ini.</p>
+            </div><!-- End Section Title -->
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="row gy-4">
+
+                    <div class="col-lg-5">
+
+                        <div class="info-wrap">
+                            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+                                <i class="bi bi-geo-alt flex-shrink-0"></i>
+                                <div>
+                                    <h3>Address</h3>
+                                    <p>M. Ikbal, Lombok-NTB</p>
+                                </div>
+                            </div><!-- End Info Item -->
+
+                            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+                                <i class="bi bi-telephone flex-shrink-0"></i>
+                                <div>
+                                    <h3>Hubungi kami</h3>
+                                    <p>+6281234567890</p>
+                                </div>
+                            </div><!-- End Info Item -->
+
+                            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+                                <i class="bi bi-envelope flex-shrink-0"></i>
+                                <div>
+                                    <h3>Email kami</h3>
+                                    <p>umkmdesakami@gmail.com</p>
+                                </div>
+                            </div><!-- End Info Item -->
+
+                            <iframe src="" frameborder="0" style="border:0; width: 100%; height: 270px;"
+                                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up"
+                            data-aos-delay="200">
+                            <div class="row gy-4">
+
+                                <div class="col-md-6">
+                                    <label for="name-field" class="pb-2">Nama anda</label>
+                                    <input type="text" name="name" id="name-field" class="form-control" required="">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="email-field" class="pb-2">Email anda</label>
+                                    <input type="email" class="form-control" name="email" id="email-field" required="">
+                                </div>
+
+                                <div class="col-md-12">
+                                    <label for="subject-field" class="pb-2"></label>
+                                    <input type="text" class="form-control" name="subject" id="subject-field"
+                                        required="">
+                                </div>
+
+                                <div class="col-md-12">
+                                    <label for="message-field" class="pb-2">Pesan</label>
+                                    <textarea class="form-control" name="message" rows="10" id="message-field"
+                                        required=""></textarea>
+                                </div>
+
+                                <div class="col-md-12 text-center">
+                                    <div class="loading">Loading</div>
+                                    <div class="error-message"></div>
+                                    <div class="sent-message">Pesan Anda telah terkirim. Terima kasih!</div>
+
+                                    <button type="submit">Kirim pesan</button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div><!-- End Contact Form -->
+
+                </div>
+
+            </div>
+
+        </section><!-- /Contact Section -->
 
 
     </main>
