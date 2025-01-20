@@ -65,10 +65,10 @@
 
                                                 <td><?=$tampil['nama_lengkap'] ;?></td>
                                                 <td><?=$tampil['email'] ;?></td>
-                                                <td><?=$tampil['role'] ;?></td>
+                                                <td><?=$tampil['urole'] ;?></td>
                                                 <td><?=$tampil['no_telp'] ;?></td>
                                                 <td><?=$tampil['status']?></td>
-                                                <td><a href="?page=users_add&id=<?=$tampil['id'] ;?>"
+                                                <td><a href="?page=users_edit&id=<?=$tampil['id'] ;?>"
                                                         class="fa fa-pencil"></a> | <a
                                                         href="?page=users_delete&id=<?=$tampil['id'] ;?>"
                                                         class="fa fa-trash"></a></td>

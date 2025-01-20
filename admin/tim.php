@@ -64,7 +64,7 @@
                                                 <td><?=$tampil['nama'] ;?></td>
                                                 <td><?=$tampil['posisi'] ;?></td>
                                                 <td><?=$tampil['email'] ;?></td>
-                                                <td><a href="?page=tim_add&id=<?=$tampil['id'] ;?>"
+                                                <td><a href="?page=tim_edit&id=<?=$tampil['id'] ;?>"
                                                         class="fa fa-pencil"></a> | <a
                                                         href="?page=tim_delete&id=<?=$tampil['id'] ;?>"
                                                         class="fa fa-trash"></a></td>
