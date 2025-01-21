@@ -64,10 +64,12 @@
                                                 <td><?=$tampil['nama'] ;?></td>
                                                 <td><?=$tampil['posisi'] ;?></td>
                                                 <td><?=$tampil['email'] ;?></td>
-                                                <td><a href="?page=tim_edit&id=<?=$tampil['id'] ;?>"
-                                                        class="fa fa-pencil"></a> | <a
-                                                        href="?page=tim_delete&id=<?=$tampil['id'] ;?>"
-                                                        class="fa fa-trash"></a></td>
+                                                <td><a href="?page=tim_edit&id=<?=$tampil['id'] ;?>"><button
+                                                            type="button" class="btn btn-warning fa fa-pencil">
+                                                            Edit</button></a> | <a
+                                                        href="?page=tim_delete&id=<?=$tampil['id'] ;?>"><button
+                                                            type="button" class="btn btn-danger fa fa-trash">
+                                                            Hapus</button></a></td>
 
                                             </tr>
                                             <?php endforeach; ?>

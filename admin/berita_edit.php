@@ -23,16 +23,9 @@
                 </div>
 
                 <?php
-
-                                 
-
                       $idberita=$_GET['id'];
                       $query = mysqli_query($kon, "select *from berita where id='$idberita' LIMIT 1");
-                   
                        $ed = mysqli_fetch_array ($query,MYSQLI_ASSOC)
-                       
-
-
                 ?>
 
                 <form method="POST" action="" enctype="multipart/form-data" name="fberita" id="demo-form2"

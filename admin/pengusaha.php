@@ -43,14 +43,13 @@
                                                 <th>No</th>
                                                 <th>Nama</th>
                                                 <th>Usaha</th>
-                                                <th>Jenis</th>
                                                 <th>No Hp</th>
                                                 <th>Status</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <?php
-                            $query = mysqli_query($kon,"SELECT 	pengusaha.id,nama_lengkap, nama_usaha, jenis_umkm, pengusaha.status, pengusaha.no_telp FROM pengusaha INNER JOIN users ON  pengusaha.user_id = users.id");
+                            $query = mysqli_query($kon,"SELECT 	pengusaha.id,nama_lengkap, nama_usaha, pengusaha.status, pengusaha.no_telp FROM pengusaha INNER JOIN users ON  pengusaha.user_id = users.id");
                             $tampung = mysqli_fetch_all($query, MYSQLI_ASSOC);
                             ?>
 
@@ -64,13 +63,16 @@
                                                 <td><?= $index + 1 ?></td>
                                                 <td><?=$tampil['nama_lengkap'] ;?></td>
                                                 <td><?=$tampil['nama_usaha'] ;?></td>
-                                                <td><?=$tampil['jenis_umkm'] ;?></td>
                                                 <td><?=$tampil['no_telp']?></td>
                                                 <td><?=$tampil['status']?></td>
-                                                <td><a href="?page=pengusaha_add&id=<?=$tampil['id'] ;?>"
-                                                        class="fa fa-pencil"></a> | <a
-                                                        href="?page=pengusaha_delete&id=<?=$tampil['id'] ;?>"
-                                                        class="fa fa-trash"></a></td>
+                                                <td>
+                                                    <a href="?page=pengusaha_edit&id=<?=$tampil['id'] ;?>"><button
+                                                            type="button" class="btn btn-warning fa fa-pencil">
+                                                            Edit</button></a> <a
+                                                        href="?page=pengusaha_delete&id=<?=$tampil['id'] ;?>"><button
+                                                            type="button" class="btn btn-danger fa fa-trash">
+                                                            Hapus</button></a>
+                                                </td>
 
                                             </tr>
                                             <?php endforeach; ?>

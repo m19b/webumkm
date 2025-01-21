@@ -59,10 +59,12 @@
                                                 <td><?=$tampil['pertanyaan'] ;?></td>
                                                 <td><?=$tampil['jawaban'] ;?></td>
                                                 <td><?=$tampil['kategori'] ;?></td>
-                                                <td><a href="?page=faq_add&id=<?=$tampil['id'] ;?>"
-                                                        class="fa fa-pencil"></a> | <a
-                                                        href="?page=faq_delete&id=<?=$tampil['id'] ;?>"
-                                                        class="fa fa-trash"></a></td>
+                                                <td><a href="?page=faq_add&id=<?=$tampil['id'] ;?>"><button
+                                                            type="button" class="btn btn-warning fa fa-trash">
+                                                            Edit</button></a> <a
+                                                        href="?page=faq_delete&id=<?=$tampil['id'] ;?>"><button
+                                                            type="button" class="btn btn-danger fa fa-trash">
+                                                            Hapus</button></a></td>
 
                                             </tr>
                                             <?php endforeach; ?>

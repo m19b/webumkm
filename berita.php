@@ -72,7 +72,7 @@
                 </div><!-- End Section Title -->
                 <div class="row gy-4">
                     <?php
-                  $query = mysqli_query($kon, "SELECT SUBSTRING(konten, 1, 100) konten, penulis, judul, kategori, gambar, id,created_at FROM berita ORDER BY created_at DESC ");
+                  $query = mysqli_query($kon, "SELECT SUBSTRING(konten, 1, 100) konten, nama_lengkap, judul, nama, gambar, berita.id,berita.created_at FROM berita INNER JOIN users ON users.id = user_id INNER JOIN kategori ON kategori_id = kategori.id ORDER BY berita.created_at DESC ");
 
                   $tampung = mysqli_fetch_all($query,MYSQLI_ASSOC);
                   foreach($tampung as $t3):
@@ -109,9 +109,9 @@
                                                     <?=date_format($tgl, "d M Y")?></button>
                                                 <button type="button" class="btn btn-secondary btn-sm"><i
                                                         class="bi bi-person-check"></i>
-                                                    <?=$t3['penulis'];?></button>
+                                                    <?=$t3['nama_lengkap'];?></button>
                                                 <button type="button" class="btn btn-info btn-sm"><i
-                                                        class="bi bi-bookmarks"></i> <?=$t3['kategori'];?></button>
+                                                        class="bi bi-bookmarks"></i> <?=$t3['nama'];?></button>
                                             </div>
                                             <!-- echo date_format($date,"Y/m/d H:i:s"); -->
                                         </div>

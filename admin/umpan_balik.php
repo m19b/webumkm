@@ -63,10 +63,12 @@
                                                 <td><?=$tampil['produk_layanan'] ;?></td>
                                                 <td><?=$tampil['rating']?></td>
                                                 <td><?=$tampil['tindak_lanjut']?></td>
-                                                <td><a href="?page=umpan_balik_add&id=<?=$tampil['id'] ;?>"
-                                                        class="fa fa-pencil"></a> | <a
-                                                        href="?page=umpan_balik_delete&id=<?=$tampil['id'] ;?>"
-                                                        class="fa fa-trash"></a></td>
+                                                <td><a href="?page=umpan_balik_add&id=<?=$tampil['id'] ;?>"><button
+                                                            type="button" class="btn btn-warning fa fa-pencil">
+                                                            Edit</button></a> <a
+                                                        href="?page=umpan_balik_delete&id=<?=$tampil['id'] ;?>"><button
+                                                            type="button" class="btn btn-danger fa fa-trash">
+                                                            Hapus</button></a></td>
 
                                             </tr>
                                             <?php endforeach; ?>

@@ -68,10 +68,12 @@
                                                 <td><?=$tampil['urole'] ;?></td>
                                                 <td><?=$tampil['no_telp'] ;?></td>
                                                 <td><?=$tampil['status']?></td>
-                                                <td><a href="?page=users_edit&id=<?=$tampil['id'] ;?>"
-                                                        class="fa fa-pencil"></a> | <a
-                                                        href="?page=users_delete&id=<?=$tampil['id'] ;?>"
-                                                        class="fa fa-trash"></a></td>
+                                                <td><a href="?page=users_edit&id=<?=$tampil['id'] ;?>"><button
+                                                            type="button" class="btn btn-warning fa fa-pencil">
+                                                            Edit</button></a> <a
+                                                        href="?page=users_delete&id=<?=$tampil['id'] ;?>"><button
+                                                            type="button" class="btn btn-danger fa fa-trash">
+                                                            Hapus</button></a></td>
 
                                             </tr>
                                             <?php endforeach; ?>

@@ -285,7 +285,7 @@
                     <?php
                     $query = mysqli_query($kon, "SELECT
                                 pengusaha.nama_usaha,
-                                pengusaha.jenis_umkm,
+                             
                                 produk.id,
                                 produk.nama_produk,
                                 produk.deskripsi,
@@ -365,8 +365,12 @@
 
                             </ul>
                             <div class="absolute">
-                                <a href=""> <button type="button" class="btn btn-outline-primary"><i
-                                            class="bi bi-cart4"></i> Keranjang</button></a> &nbsp | &nbsp
+
+
+                                <a href="proses.php" target="_self"> <button type="button"
+                                        class="btn btn-outline-primary"><i class="bi bi-cart4"></i>
+                                        Keranjang</button></a> &nbsp | &nbsp
+
                                 <a href=""> <button type="button" class="btn btn-outline-success"><i
                                             class="bi bi-bag-check"></i> Beli Langsung</button></a>
 
@@ -422,7 +426,7 @@
                         </script>
                         <div class="swiper-wrapper">
                             <?php 
-                                $query = mysqli_query($kon,"SELECT *FROM umpan_balik");
+                                $query = mysqli_query($kon,"SELECT *FROM umpan_balik ");
                                 $tampung = mysqli_fetch_all($query, MYSQLI_ASSOC);
                                 foreach ($tampung as $t1):
                                     $no = $t1['rating'];

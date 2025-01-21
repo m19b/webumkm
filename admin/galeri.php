@@ -49,7 +49,7 @@
                                             </tr>
                                         </thead>
                                         <?php
-                            $query = mysqli_query($kon,"Select *from galeri");
+                            $query = mysqli_query($kon,"Select gambar,id,judul,kategori,SUBSTRING(deskripsi, 1, 30) deskripsi from galeri");
                             $tampung = mysqli_fetch_all($query, MYSQLI_ASSOC);
                             ?>
 
@@ -62,11 +62,13 @@
                                                 </td>
                                                 <td><?=$tampil['judul']?></td>
                                                 <td><?=$tampil['kategori'] ;?></td>
-                                                <td><?=$tampil['deskripsi'] ;?></td>
-                                                <td><a href="?page=galeri_add&id=<?=$tampil['id'] ;?>"
-                                                        class="fa fa-pencil"></a> | <a
-                                                        href="?page=galeri_delete&id=<?=$tampil['id'] ;?>"
-                                                        class="fa fa-trash"></a></td>
+                                                <td><?=$tampil['deskripsi'] ;?>...</td>
+                                                <td><a href="?page=galeri_add&id=<?=$tampil['id'] ;?>"><button
+                                                            type="button" class="btn btn-warning fa fa-trash">
+                                                            Edit</button></a> <a
+                                                        href="?page=galeri_delete&id=<?=$tampil['id'] ;?>"><button
+                                                            type="button" class="btn btn-danger fa fa-trash">
+                                                            Hapus</button></a></td>
 
                                             </tr>
                                             <?php endforeach; ?>

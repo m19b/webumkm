@@ -75,7 +75,7 @@
                     <?php
                     $query = mysqli_query($kon, "SELECT
 	pengusaha.nama_usaha,
-	pengusaha.jenis_umkm,
+ 
 	produk.id,
 	produk.nama_produk,
 	produk.deskripsi,

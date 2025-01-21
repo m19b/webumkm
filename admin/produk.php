@@ -41,7 +41,6 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Jenis UMKM</th>
                                                 <th>Produk</th>
                                                 <th>harga</th>
                                                 <th>Stok</th>
@@ -50,7 +49,7 @@
                                             </tr>
                                         </thead>
                                         <?php
-                            $query = mysqli_query($kon,"SELECT pengusaha.jenis_umkm, produk.nama_produk, produk.harga, produk.id, produk.stok, produk.`status` FROM produk INNER JOIN pengusaha ON  produk.pengusaha_id = pengusaha.id");
+                            $query = mysqli_query($kon,"SELECT produk.nama_produk, produk.harga, produk.id, produk.stok, produk.`status` FROM produk INNER JOIN pengusaha ON  produk.pengusaha_id = pengusaha.id");
                             $tampung = mysqli_fetch_all($query, MYSQLI_ASSOC);
                             ?>
 
@@ -58,15 +57,16 @@
                                             <?php foreach($tampung as $index => $tampil): ?>
                                             <tr>
                                                 <td><?= $index + 1 ?></td>
-                                                <td><?=$tampil['jenis_umkm'] ;?></td>
                                                 <td><?=$tampil['nama_produk'] ;?></td>
                                                 <td><?=$tampil['harga'] ;?></td>
                                                 <td><?=$tampil['stok'] ;?></td>
                                                 <td><?=$tampil['status']?></td>
-                                                <td><a href="?page=produk_add&id=<?=$tampil['id'] ;?>"
-                                                        class="fa fa-pencil"></a> | <a
-                                                        href="?page=produk_delete&id=<?=$tampil['id'] ;?>"
-                                                        class="fa fa-trash"></a></td>
+                                                <td><a href="?page=produk_add&id=<?=$tampil['id'] ;?>"><button
+                                                            type="button" class="btn btn-warning fa fa-pencil">
+                                                            Edit</button></a> | <a
+                                                        href="?page=produk_delete&id=<?=$tampil['id'] ;?>"><button
+                                                            type="button" class="btn btn-danger fa fa-trash">
+                                                            Hapus</button></a></td>
 
                                             </tr>
                                             <?php endforeach; ?>

@@ -85,11 +85,16 @@ FROM
                                                     <td><?=$tampil['nama_lengkap'] ;?></td>
                                                     <td><?=$tampil['nama']?></td>
                                                     <td><?=$tampil['statusp']?></td>
-                                                    <td><a href="?page=berita_edit&id=<?=$tampil['id'] ;?>"
-                                                            class="fa fa-pencil"></a> | <a
+                                                    <td>
+                                                        <a href="?page=berita_edit&id=<?=$tampil['id'] ;?>"><button
+                                                                type="button" class="btn btn-warning fa fa-pencil">
+                                                                Edit</button></a> <a
                                                             href="?page=berita_delete&id=<?=$tampil['id'] ;?>"
-                                                            onclick="return confirm('Yakin Akan Menghpus berita <?=$data['judul']?> ?')"
-                                                            class="fa fa-trash"></a>
+                                                            onclick="return confirm('Yakin Akan Menghpus berita <?=$data['judul']?> ?')"><button
+                                                                type="button" class="btn btn-danger fa fa-trash">
+                                                                Hapus</button></a>
+
+
 
 
                                                     </td>
